@@ -25,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EC52FE8B1D10FCD2003CA45C /* XFFoundation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XFFoundation.h; sourceTree = "<group>"; };
 		ECB944371D07BBBC00ED3229 /* XFFoundation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XFFoundation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECB9443B1D07BBBC00ED3229 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		ECB9443D1D07BBBC00ED3229 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -67,9 +68,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EC52FE8A1D10FCBC003CA45C /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				EC52FE8B1D10FCD2003CA45C /* XFFoundation.h */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
 		ECB9442E1D07BBBC00ED3229 = {
 			isa = PBXGroup;
 			children = (
+				EC52FE8A1D10FCBC003CA45C /* Header */,
 				ECB9446A1D07BE4B00ED3229 /* ViewController */,
 				ECB9445D1D07BDA800ED3229 /* View */,
 				ECB944511D07BC0500ED3229 /* Base */,
@@ -390,6 +400,7 @@
 				ECB944501D07BBBC00ED3229 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
