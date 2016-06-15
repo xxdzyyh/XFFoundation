@@ -13,7 +13,7 @@
 #import "XFTableViewController.h"
 #import "XFBannerScrollView.h"
 #import "XFLineView.h"
-#import "XFLineView.h"
+#import "XFLineHelper.h"
 #import "XFTableViewCell.h"
 #import "SynthesizeSingleton.h"
 #import "XFAppDelegate.h"
