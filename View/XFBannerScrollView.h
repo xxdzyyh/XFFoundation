@@ -37,14 +37,31 @@ typedef NS_ENUM(NSUInteger, XFPageControlStyle) {
 
 @end
 
+@protocol XFBannerScrollViewDelegate <NSObject>
+
+- (BOOL)shouldAutoScroll;
+
+- (void)bannerScrollView:(XFBannerScrollView *)banner didShowImageAtIndex:(NSInteger)index;
+
+/** 图片是否可以点击 */
+- (BOOL)shouldAcceptTapEvent;
+
+- (void)bannerScrollView:(XFBannerScrollView *)banner didTapImageAtIndex:(NSInteger)index;
+
+@end
+
 
 @interface XFBannerScrollView : UIScrollView
 
-@property (assign, nonatomic) id<XFBannerScrollViewDataSource> dataSource;
+@property (weak  , nonatomic) id<XFBannerScrollViewDelegate> bannerDelegate;
+
+@property (weak  , nonatomic) id<XFBannerScrollViewDataSource> dataSource;
 
 @property (assign, nonatomic) XFPageControlPostion pageControlPostion;
 
 @property (assign, nonatomic) XFPageControlStyle pageControlStyle;
 
 @property (assign, nonatomic) BOOL autoScroll;
+
+@property (assign, nonatomic) BOOL acceptTap;
 @end

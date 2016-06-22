@@ -12,6 +12,7 @@
 @interface XFBannerScrollView () <UIScrollViewDelegate> {
     CGRect _expectFrame;
     NSUInteger _currentIndex;
+    BOOL _hasTapGesture;
 }
 
 @property (strong, nonatomic) NSArray *imageViews;
@@ -55,6 +56,21 @@
     return self;
 }
 
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    float w = CGRectGetWidth(self.frame);
+    float h = CGRectGetHeight(self.frame);
+    
+    self.contentSize = CGSizeMake(w * 3, h);
+    
+    _imgvLef.frame = CGRectMake(0, 0, w, h);
+    _imgvMid.frame = CGRectMake(w, 0, w, h);
+    _imgvRig.frame = CGRectMake(w*2, 0, w, h);
+    
+    [self updatePageControlPostion];
+}
+
 - (void)setUp {
     self.bounces = NO;
     self.showsHorizontalScrollIndicator = NO;
@@ -65,31 +81,45 @@
     float w = CGRectGetWidth(self.frame);
     float h = CGRectGetHeight(self.frame);
     
-    _imgvLef = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, w, h)];
-    _imgvMid = [[UIImageView alloc]initWithFrame:CGRectMake(w, 0, w, h)];
-    _imgvRig = [[UIImageView alloc]initWithFrame:CGRectMake(w*2, 0, w, h)];
+    _imgvLef = [[UIImageView alloc]init];
+    _imgvMid = [[UIImageView alloc]init];
+    _imgvRig = [[UIImageView alloc]init];
     
-    self.imageViews = @[_imgvLef, _imgvMid, _imgvRig];
+    _imgvLef.tag = 0;
+    _imgvMid.tag = 1;
+    _imgvRig.tag = 2;
+    
+    _imageViews = @[_imgvLef, _imgvMid, _imgvRig];
     
     _currentIndex = 1;
     
     [self setContentOffset:CGPointMake(w, 0)];
+    [self.pageControl setCurrentPage:1];
     
     for (UIView *v in self.imageViews) {
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapedImage:)];
+        [v addGestureRecognizer:tap];
+        
         [self addSubview:v];
     }
 }
 
-- (void)didMoveToSuperview {
-    [super didMoveToSuperview];
+- (void)willMoveToSuperview:(UIView *)newSuperview {
+    [super willMoveToSuperview:newSuperview];
     
     [self.superview addSubview:self.pageControl];
     
     if (self.autoScroll) {
         [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(scrollByTimer) userInfo:nil repeats:YES];
         
-        //推动的时候就不要跳了
+        //触摸的时候就不要跳了
         //[[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    }
+    
+    
+    for (UIView *v in self.imageViews) {
+        
+        v.userInteractionEnabled = self.acceptTap;
     }
 }
 
@@ -102,6 +132,13 @@
 - (void)scrollByTimer {
     [self setContentOffset:CGPointMake(CGRectGetWidth(self.frame)*2, 0) animated:YES];
     [self scrollViewDidEndDecelerating:self];
+}
+
+- (void)tapedImage:(UITapGestureRecognizer *)tap {
+    if (self.bannerDelegate && [self.bannerDelegate respondsToSelector:@selector(bannerScrollView:didTapImageAtIndex:)]) {
+        
+        [self.bannerDelegate bannerScrollView:self didTapImageAtIndex:_currentIndex];
+    }
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -149,21 +186,23 @@
 
 #pragma mark - setter & getter 
 
+- (void)setBannerDelegate:(id<XFBannerScrollViewDelegate>)bannerDelegate {
+    _bannerDelegate = bannerDelegate;
+    
+    if (_bannerDelegate && [_bannerDelegate respondsToSelector:@selector(shouldAcceptTapEvent)]) {
+        _acceptTap = [_bannerDelegate shouldAcceptTapEvent];
+    }
+}
+
 - (UIPageControl *)pageControl {
     if (_pageControl == nil) {
         _pageControl = [[UIPageControl alloc] init];
+        
         _pageControl.enabled = NO;
+        _pageControl.pageIndicatorTintColor = [UIColor orangeColor];
+        _pageControl.currentPageIndicatorTintColor = [UIColor redColor];
     }
     return _pageControl;
-}
-
-- (void)setFrame:(CGRect)frame {
-    [super setFrame:frame];
-    
-    float w = CGRectGetWidth(frame);
-    float h = CGRectGetHeight(frame);
-    
-    self.contentSize = CGSizeMake(w * 3, h);
 }
 
 - (void)setDataSource:(id<XFBannerScrollViewDataSource>)dataSource {
@@ -198,8 +237,7 @@
     }
 }
 
-- (void)setPageControlPostion:(XFPageControlPostion)pageControlPostion {
-    _pageControlPostion = pageControlPostion;
+- (void)updatePageControlPostion {
     
     float w = CGRectGetWidth(self.frame);
     float h = CGRectGetHeight(self.frame);
@@ -233,6 +271,12 @@
             break;
         }
     }
+}
+
+- (void)setPageControlPostion:(XFPageControlPostion)pageControlPostion {
+    _pageControlPostion = pageControlPostion;
+    
+    [self updatePageControlPostion];
 }
 
 @end

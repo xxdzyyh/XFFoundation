@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XFViewController.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : XFViewController
 
 
 @end

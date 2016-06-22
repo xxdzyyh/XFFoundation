@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "XFRequest.h"
 
 @interface ViewController ()
 
@@ -16,7 +17,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    XFRequest *request0 = [[XFRequest alloc] initWithPath:@"" finish:^(XFRequest *request, id result) {
+
+        NSLog(@"%@",result);
+        
+    }];
+    
+    XFRequest *request1 = [[XFRequest alloc] initWithPath:@"" finish:^(XFRequest *request, id result) {
+        
+        NSLog(@"%@",result);
+        
+    }];
+    
+    XFRequest *request2 = [[XFRequest alloc] initWithPath:@"" finish:^(XFRequest *request, id result) {
+        
+        NSLog(@"%@",result);
+        
+    }];
+    
+    [self.mainQueue push:request0];
+    
+    [self.mainQueue push:request1];
+    
+    [self.mainQueue push:request2];
 }
 
 - (void)didReceiveMemoryWarning {
