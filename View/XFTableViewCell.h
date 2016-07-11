@@ -20,4 +20,12 @@
 
 - (void)configCellWithData:(id)item;
 
++ (UIImage *)imageWithColor:(UIColor *)color;
+
+- (UIImage *)originImage:(UIImage *)image scaleToSize:(CGSize)size;
+
+- (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size;
+
+- (void)showInfoWithStatus:(NSString *)status;
+
 @end

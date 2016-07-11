@@ -11,6 +11,8 @@
 
 #define XFLineHeight 1
 
+#define kXFSeperatorColor [UIColor colorWithRed:0.800 green:0.800 blue:0.800 alpha:1.00]
+
 @implementation XFLineHelper
 
 + (void)delTopLine:(UIView *)view {
@@ -34,6 +36,22 @@
     [self delBottomLine:view];
 }
 
++ (void)add15LeftBottomLineToView:(UIView *)view {
+    [self delBottomLine:view];
+    
+    XFLineView *v =
+    [[XFLineView alloc] initWithFrame:CGRectMake(0, view.frame.size.height - XFLineHeight,
+                                                 view.frame.size.width, XFLineHeight)];
+    v.lineWidth = @(XFLineHeight);
+    v.lineColor = kXFSeperatorColor;
+    v.tag = 12345;
+    v.margin1 = @(15);
+    v.margin2 = @(0);
+    v.isBottomLine = YES;
+    v.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+    [view addSubview:v];
+}
+
 //移除底部细线
 + (void)removeBottomLineToView:(UIView *)view {
     [self delBottomLine:view];
@@ -45,7 +63,7 @@
 
 //在底部增加一条细线。用于head section
 + (void)addBottomLineToView:(UIView *)view offsetLeft:(CGFloat)x offsetRight:(CGFloat)y {
-    [self addBottomLineToView:view offsetLeft:x offsetRight:y color:[UIColor lightGrayColor]];
+    [self addBottomLineToView:view offsetLeft:x offsetRight:y color:kXFSeperatorColor];
 }
 
 //在底部增加一条细线。用于head section
@@ -70,7 +88,7 @@
 
 //在顶部增加一条细线。用于head section
 + (void)addTopLineToView:(UIView *)view offsetLeft:(CGFloat)x offsetRight:(CGFloat)y {
-    [self addTopLineToView:view offsetLeft:x offsetRight:y color:[UIColor lightGrayColor]];
+    [self addTopLineToView:view offsetLeft:x offsetRight:y color:kXFSeperatorColor];
 }
 
 //在顶部增加一条细线。用于head section

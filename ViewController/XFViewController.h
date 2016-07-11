@@ -13,6 +13,10 @@
 
 @property (strong, nonatomic) XFRequestQueue *mainQueue;
 
+@property (assign, nonatomic, getter=isKeyboardShowing) BOOL keyboardShowing;
+
+- (void)setErrorMessage:(NSString *)errorMessage;
+
 /** 显示一个错位的视图 */
 - (void)showErrorView;
 
@@ -25,5 +29,17 @@
 - (void)showLoadingView;
 
 - (void)closeLoadingView;
+
+- (void)showInfoWithStatus:(NSString *)status;
+
+- (void)showCenterInfoWithStatus:(NSString *)status;
+
++ (UIImage *)imageWithColor:(UIColor *)color;
+
+- (void)showEmptyView;
+
+- (void)hiddenEmptyView;
+
+- (void)onCustomBackItemClicked:(id)sender;
 
 @end

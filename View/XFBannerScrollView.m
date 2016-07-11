@@ -97,6 +97,7 @@
     [self.pageControl setCurrentPage:1];
     
     for (UIView *v in self.imageViews) {
+        
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapedImage:)];
         [v addGestureRecognizer:tap];
         
@@ -116,10 +117,10 @@
         //[[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
     }
     
-    
     for (UIView *v in self.imageViews) {
         
         v.userInteractionEnabled = self.acceptTap;
+        v.contentMode = self.imageContentMode;
     }
 }
 

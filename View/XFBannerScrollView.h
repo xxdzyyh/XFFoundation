@@ -39,6 +39,8 @@ typedef NS_ENUM(NSUInteger, XFPageControlStyle) {
 
 @protocol XFBannerScrollViewDelegate <NSObject>
 
+@optional
+
 - (BOOL)shouldAutoScroll;
 
 - (void)bannerScrollView:(XFBannerScrollView *)banner didShowImageAtIndex:(NSInteger)index;
@@ -64,4 +66,6 @@ typedef NS_ENUM(NSUInteger, XFPageControlStyle) {
 @property (assign, nonatomic) BOOL autoScroll;
 
 @property (assign, nonatomic) BOOL acceptTap;
+
+@property (assign, nonatomic) UIViewContentMode imageContentMode;
 @end

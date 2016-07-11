@@ -7,6 +7,7 @@
 //
 
 #import "XFTableViewCell.h"
+#import "MBProgressHUD.h"
 
 @implementation XFTableViewCell
 
@@ -15,12 +16,11 @@
 }
 
 + (NSInteger)cellHeight {
-    return 44;
+    return 50;
 }
 
 - (void)configCellWithData:(id)item {
     self.data = item;
-    self.textLabel.text = [self.data description];
 }
 
 + (id)cellForTableView:(UITableView *)tableView {
@@ -55,6 +55,65 @@
     }
     
     return cell;
+}
+
++ (UIImage *)imageWithColor:(UIColor *)color {
+    CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
+}
+
+- (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size {
+    
+    CGRect rect = CGRectMake(0.0f, 0.0f, size.width, size.height);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
+}
+
+- (UIImage *)originImage:(UIImage *)image scaleToSize:(CGSize)size
+{
+    UIGraphicsBeginImageContext(size);  //size 为CGSize类型，即你所需要的图片尺寸
+    
+    [image drawInRect:CGRectMake(0, 0, size.width, size.height)];
+    
+    UIImage* scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return scaledImage;   //返回的就是已经改变的图片
+}
+
+- (void)showInfoWithStatus:(NSString *)status {
+    float h = [UIScreen mainScreen].bounds.size.height;
+    
+    UIWindow *window = [[[UIApplication sharedApplication] windows] lastObject];
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:window animated:YES];
+    
+    hud.userInteractionEnabled = NO;
+    hud.mode = MBProgressHUDModeText;
+    hud.labelText = status;
+    hud.margin = 10.f;
+    hud.yOffset = h/2 - 100;
+    hud.removeFromSuperViewOnHide = YES;
+    
+    [hud hide:YES afterDelay:1.5];
 }
 
 @end

@@ -7,9 +7,42 @@
 //
 
 #import "XFViewController.h"
+//#import "XFEmptyView.h"
+
+typedef NS_ENUM(NSUInteger,XFDataType) {
+    XFDataTypeRequest,
+    XFDataTypeLocal
+};
+
+@interface XFEmptyView : UIControl
+
+@property (copy  , nonatomic) NSString *title;
+@property (copy  , nonatomic) NSString *imageName;
+
+- (instancetype)initWithTitle:(NSString *)title image:(NSString *)imageName;
+
+@end
 
 @interface XFTableViewController : XFViewController <UITableViewDelegate, UITableViewDataSource>
 
-@property (strong, nonatomic) UITableView *tableView;
+// getter
+- (UITableView *)tableView;
+- (XFEmptyView *)emptyView;
+
+
+@property (copy  , nonatomic) NSString *emptyTitle;
+@property (copy  , nonatomic) NSString *emptyImageName;
+@property (assign, nonatomic) XFDataType dataType;
+@property (strong, nonatomic) NSMutableArray *dataSource;
+
+- (UITableViewCell *)seperatorCell;
+
+- (float)seperatorCellHeight;
+
++ (float)heightForLableWithText:(NSString *)text font:(UIFont *)font perferWidth:(float)width;
+
++ (float)heightForString:(NSString *)string font:(UIFont *)font perferWidth:(float)width;
+
+- (void)refreshTableView;
 
 @end

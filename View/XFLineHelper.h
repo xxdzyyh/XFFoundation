@@ -31,6 +31,8 @@
  */
 + (void)addBottomLineToView:(UIView *)view offsetLeft:(CGFloat)left offsetRight:(CGFloat)y;
 
++ (void)add15LeftBottomLineToView:(UIView *)view;
+
 /*!  * @brief 添加底部线条
  * @param left 左边距
  * @param right 右边距
