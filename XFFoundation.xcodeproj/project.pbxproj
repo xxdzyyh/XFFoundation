@@ -8,7 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		1BEB3F16C3BE5B35BD606111 /* libPods-XFFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 332EE1CACA1FFEABFD268A85 /* libPods-XFFoundation.a */; };
-		EC33E8B41D1A70BE00F74C7C /* XFBannerScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC33E8B31D1A70BE00F74C7C /* XFBannerScrollView.m */; };
+		EC2FF9871D33345D00C3F52F /* XFBannerScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2FF9771D33345D00C3F52F /* XFBannerScrollView.m */; };
+		EC2FF9881D33345D00C3F52F /* XFExcelView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2FF9791D33345D00C3F52F /* XFExcelView.m */; };
+		EC2FF9891D33345D00C3F52F /* XFExcelViewTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2FF97B1D33345D00C3F52F /* XFExcelViewTitleCell.m */; };
+		EC2FF98A1D33345D00C3F52F /* XFLineHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2FF97D1D33345D00C3F52F /* XFLineHelper.m */; };
+		EC2FF98B1D33345D00C3F52F /* XFLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2FF97F1D33345D00C3F52F /* XFLineView.m */; };
+		EC2FF98C1D33345D00C3F52F /* XFSearchHistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2FF9811D33345D00C3F52F /* XFSearchHistoryTableViewCell.m */; };
+		EC2FF98D1D33345D00C3F52F /* XFSearchHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC2FF9821D33345D00C3F52F /* XFSearchHistoryTableViewCell.xib */; };
+		EC2FF98E1D33345D00C3F52F /* XFTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2FF9841D33345D00C3F52F /* XFTableViewCell.m */; };
+		EC2FF98F1D33345D00C3F52F /* XFTopTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2FF9861D33345D00C3F52F /* XFTopTabBar.m */; };
+		EC2FF9941D33346F00C3F52F /* XFNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2FF9911D33346F00C3F52F /* XFNavigationController.m */; };
+		EC2FF9951D33346F00C3F52F /* XFRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2FF9931D33346F00C3F52F /* XFRefreshTableViewController.m */; };
+		EC2FF9981D33378A00C3F52F /* XFEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2FF9971D33378A00C3F52F /* XFEmptyView.m */; };
 		EC33E8BA1D1A70F200F74C7C /* XFRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = EC33E8B71D1A70F200F74C7C /* XFRequest.m */; };
 		EC33E8BB1D1A70F200F74C7C /* XFRequestQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = EC33E8B91D1A70F200F74C7C /* XFRequestQueue.m */; };
 		ECB9443C1D07BBBC00ED3229 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ECB9443B1D07BBBC00ED3229 /* main.m */; };
@@ -20,9 +31,6 @@
 		ECB9445A1D07BC3F00ED3229 /* XFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECB944551D07BC3F00ED3229 /* XFAppDelegate.m */; };
 		ECB9445B1D07BC3F00ED3229 /* XFPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = ECB944571D07BC3F00ED3229 /* XFPlugin.m */; };
 		ECB9445C1D07BC3F00ED3229 /* XFPluginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ECB944591D07BC3F00ED3229 /* XFPluginManager.m */; };
-		ECB944671D07BDF000ED3229 /* XFLineHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = ECB944611D07BDF000ED3229 /* XFLineHelper.m */; };
-		ECB944681D07BDF000ED3229 /* XFLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECB944631D07BDF000ED3229 /* XFLineView.m */; };
-		ECB944691D07BDF000ED3229 /* XFTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECB944651D07BDF000ED3229 /* XFTableViewCell.m */; };
 		ECB944701D07BE6B00ED3229 /* XFTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECB9446E1D07BE6B00ED3229 /* XFTableViewController.m */; };
 		ECB944731D07BF0F00ED3229 /* XFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECB944721D07BF0F00ED3229 /* XFViewController.m */; };
 		ECEACCE81D1B772200832429 /* red_public_welfare@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ECEACCE71D1B772200832429 /* red_public_welfare@3x.png */; };
@@ -32,8 +40,29 @@
 		255796C8491D7A542FA36502 /* Pods-XFFoundation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XFFoundation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XFFoundation/Pods-XFFoundation.debug.xcconfig"; sourceTree = "<group>"; };
 		332EE1CACA1FFEABFD268A85 /* libPods-XFFoundation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XFFoundation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B905CF89A373E259C7EE3A9 /* Pods-XFFoundation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XFFoundation.release.xcconfig"; path = "Pods/Target Support Files/Pods-XFFoundation/Pods-XFFoundation.release.xcconfig"; sourceTree = "<group>"; };
-		EC33E8B21D1A70BE00F74C7C /* XFBannerScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFBannerScrollView.h; sourceTree = "<group>"; };
-		EC33E8B31D1A70BE00F74C7C /* XFBannerScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFBannerScrollView.m; sourceTree = "<group>"; };
+		EC2FF9761D33345D00C3F52F /* XFBannerScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFBannerScrollView.h; sourceTree = "<group>"; };
+		EC2FF9771D33345D00C3F52F /* XFBannerScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFBannerScrollView.m; sourceTree = "<group>"; };
+		EC2FF9781D33345D00C3F52F /* XFExcelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFExcelView.h; sourceTree = "<group>"; };
+		EC2FF9791D33345D00C3F52F /* XFExcelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFExcelView.m; sourceTree = "<group>"; };
+		EC2FF97A1D33345D00C3F52F /* XFExcelViewTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFExcelViewTitleCell.h; sourceTree = "<group>"; };
+		EC2FF97B1D33345D00C3F52F /* XFExcelViewTitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFExcelViewTitleCell.m; sourceTree = "<group>"; };
+		EC2FF97C1D33345D00C3F52F /* XFLineHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFLineHelper.h; sourceTree = "<group>"; };
+		EC2FF97D1D33345D00C3F52F /* XFLineHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFLineHelper.m; sourceTree = "<group>"; };
+		EC2FF97E1D33345D00C3F52F /* XFLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFLineView.h; sourceTree = "<group>"; };
+		EC2FF97F1D33345D00C3F52F /* XFLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFLineView.m; sourceTree = "<group>"; };
+		EC2FF9801D33345D00C3F52F /* XFSearchHistoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFSearchHistoryTableViewCell.h; sourceTree = "<group>"; };
+		EC2FF9811D33345D00C3F52F /* XFSearchHistoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFSearchHistoryTableViewCell.m; sourceTree = "<group>"; };
+		EC2FF9821D33345D00C3F52F /* XFSearchHistoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XFSearchHistoryTableViewCell.xib; sourceTree = "<group>"; };
+		EC2FF9831D33345D00C3F52F /* XFTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFTableViewCell.h; sourceTree = "<group>"; };
+		EC2FF9841D33345D00C3F52F /* XFTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFTableViewCell.m; sourceTree = "<group>"; };
+		EC2FF9851D33345D00C3F52F /* XFTopTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFTopTabBar.h; sourceTree = "<group>"; };
+		EC2FF9861D33345D00C3F52F /* XFTopTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFTopTabBar.m; sourceTree = "<group>"; };
+		EC2FF9901D33346F00C3F52F /* XFNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFNavigationController.h; sourceTree = "<group>"; };
+		EC2FF9911D33346F00C3F52F /* XFNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFNavigationController.m; sourceTree = "<group>"; };
+		EC2FF9921D33346F00C3F52F /* XFRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFRefreshTableViewController.h; sourceTree = "<group>"; };
+		EC2FF9931D33346F00C3F52F /* XFRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFRefreshTableViewController.m; sourceTree = "<group>"; };
+		EC2FF9961D33378A00C3F52F /* XFEmptyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFEmptyView.h; sourceTree = "<group>"; };
+		EC2FF9971D33378A00C3F52F /* XFEmptyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFEmptyView.m; sourceTree = "<group>"; };
 		EC33E8B61D1A70F200F74C7C /* XFRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFRequest.h; sourceTree = "<group>"; };
 		EC33E8B71D1A70F200F74C7C /* XFRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFRequest.m; sourceTree = "<group>"; };
 		EC33E8B81D1A70F200F74C7C /* XFRequestQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFRequestQueue.h; sourceTree = "<group>"; };
@@ -56,12 +85,6 @@
 		ECB944571D07BC3F00ED3229 /* XFPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFPlugin.m; sourceTree = "<group>"; };
 		ECB944581D07BC3F00ED3229 /* XFPluginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFPluginManager.h; sourceTree = "<group>"; };
 		ECB944591D07BC3F00ED3229 /* XFPluginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFPluginManager.m; sourceTree = "<group>"; };
-		ECB944601D07BDF000ED3229 /* XFLineHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFLineHelper.h; sourceTree = "<group>"; };
-		ECB944611D07BDF000ED3229 /* XFLineHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFLineHelper.m; sourceTree = "<group>"; };
-		ECB944621D07BDF000ED3229 /* XFLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFLineView.h; sourceTree = "<group>"; };
-		ECB944631D07BDF000ED3229 /* XFLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFLineView.m; sourceTree = "<group>"; };
-		ECB944641D07BDF000ED3229 /* XFTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFTableViewCell.h; sourceTree = "<group>"; };
-		ECB944651D07BDF000ED3229 /* XFTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFTableViewCell.m; sourceTree = "<group>"; };
 		ECB9446D1D07BE6B00ED3229 /* XFTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFTableViewController.h; sourceTree = "<group>"; };
 		ECB9446E1D07BE6B00ED3229 /* XFTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFTableViewController.m; sourceTree = "<group>"; };
 		ECB944711D07BF0F00ED3229 /* XFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFViewController.h; sourceTree = "<group>"; };
@@ -190,14 +213,25 @@
 		ECB9445D1D07BDA800ED3229 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				EC33E8B21D1A70BE00F74C7C /* XFBannerScrollView.h */,
-				EC33E8B31D1A70BE00F74C7C /* XFBannerScrollView.m */,
-				ECB944601D07BDF000ED3229 /* XFLineHelper.h */,
-				ECB944611D07BDF000ED3229 /* XFLineHelper.m */,
-				ECB944621D07BDF000ED3229 /* XFLineView.h */,
-				ECB944631D07BDF000ED3229 /* XFLineView.m */,
-				ECB944641D07BDF000ED3229 /* XFTableViewCell.h */,
-				ECB944651D07BDF000ED3229 /* XFTableViewCell.m */,
+				EC2FF9761D33345D00C3F52F /* XFBannerScrollView.h */,
+				EC2FF9771D33345D00C3F52F /* XFBannerScrollView.m */,
+				EC2FF9781D33345D00C3F52F /* XFExcelView.h */,
+				EC2FF9791D33345D00C3F52F /* XFExcelView.m */,
+				EC2FF97A1D33345D00C3F52F /* XFExcelViewTitleCell.h */,
+				EC2FF97B1D33345D00C3F52F /* XFExcelViewTitleCell.m */,
+				EC2FF97C1D33345D00C3F52F /* XFLineHelper.h */,
+				EC2FF97D1D33345D00C3F52F /* XFLineHelper.m */,
+				EC2FF97E1D33345D00C3F52F /* XFLineView.h */,
+				EC2FF97F1D33345D00C3F52F /* XFLineView.m */,
+				EC2FF9801D33345D00C3F52F /* XFSearchHistoryTableViewCell.h */,
+				EC2FF9811D33345D00C3F52F /* XFSearchHistoryTableViewCell.m */,
+				EC2FF9821D33345D00C3F52F /* XFSearchHistoryTableViewCell.xib */,
+				EC2FF9831D33345D00C3F52F /* XFTableViewCell.h */,
+				EC2FF9841D33345D00C3F52F /* XFTableViewCell.m */,
+				EC2FF9851D33345D00C3F52F /* XFTopTabBar.h */,
+				EC2FF9861D33345D00C3F52F /* XFTopTabBar.m */,
+				EC2FF9961D33378A00C3F52F /* XFEmptyView.h */,
+				EC2FF9971D33378A00C3F52F /* XFEmptyView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -209,6 +243,10 @@
 				ECB944721D07BF0F00ED3229 /* XFViewController.m */,
 				ECB9446D1D07BE6B00ED3229 /* XFTableViewController.h */,
 				ECB9446E1D07BE6B00ED3229 /* XFTableViewController.m */,
+				EC2FF9901D33346F00C3F52F /* XFNavigationController.h */,
+				EC2FF9911D33346F00C3F52F /* XFNavigationController.m */,
+				EC2FF9921D33346F00C3F52F /* XFRefreshTableViewController.h */,
+				EC2FF9931D33346F00C3F52F /* XFRefreshTableViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -276,6 +314,7 @@
 				ECB9444A1D07BBBC00ED3229 /* LaunchScreen.storyboard in Resources */,
 				ECEACCE81D1B772200832429 /* red_public_welfare@3x.png in Resources */,
 				ECB944471D07BBBC00ED3229 /* Assets.xcassets in Resources */,
+				EC2FF98D1D33345D00C3F52F /* XFSearchHistoryTableViewCell.xib in Resources */,
 				ECB944451D07BBBC00ED3229 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -335,20 +374,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC2FF9981D33378A00C3F52F /* XFEmptyView.m in Sources */,
+				EC2FF9891D33345D00C3F52F /* XFExcelViewTitleCell.m in Sources */,
+				EC2FF9951D33346F00C3F52F /* XFRefreshTableViewController.m in Sources */,
 				ECB9445B1D07BC3F00ED3229 /* XFPlugin.m in Sources */,
-				EC33E8B41D1A70BE00F74C7C /* XFBannerScrollView.m in Sources */,
+				EC2FF98C1D33345D00C3F52F /* XFSearchHistoryTableViewCell.m in Sources */,
 				ECB944731D07BF0F00ED3229 /* XFViewController.m in Sources */,
 				ECB944701D07BE6B00ED3229 /* XFTableViewController.m in Sources */,
 				EC33E8BA1D1A70F200F74C7C /* XFRequest.m in Sources */,
 				ECB9445A1D07BC3F00ED3229 /* XFAppDelegate.m in Sources */,
 				ECB9445C1D07BC3F00ED3229 /* XFPluginManager.m in Sources */,
+				EC2FF9871D33345D00C3F52F /* XFBannerScrollView.m in Sources */,
 				EC33E8BB1D1A70F200F74C7C /* XFRequestQueue.m in Sources */,
 				ECB944421D07BBBC00ED3229 /* ViewController.m in Sources */,
 				ECB9443F1D07BBBC00ED3229 /* AppDelegate.m in Sources */,
+				EC2FF98B1D33345D00C3F52F /* XFLineView.m in Sources */,
+				EC2FF9881D33345D00C3F52F /* XFExcelView.m in Sources */,
 				ECB9443C1D07BBBC00ED3229 /* main.m in Sources */,
-				ECB944671D07BDF000ED3229 /* XFLineHelper.m in Sources */,
-				ECB944681D07BDF000ED3229 /* XFLineView.m in Sources */,
-				ECB944691D07BDF000ED3229 /* XFTableViewCell.m in Sources */,
+				EC2FF98F1D33345D00C3F52F /* XFTopTabBar.m in Sources */,
+				EC2FF98A1D33345D00C3F52F /* XFLineHelper.m in Sources */,
+				EC2FF98E1D33345D00C3F52F /* XFTableViewCell.m in Sources */,
+				EC2FF9941D33346F00C3F52F /* XFNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,7 +8,7 @@
 
 #import "XFViewController.h"
 #import <SVProgressHUD/SVProgressHUD.h>
-#import "MBProgressHUD.h"
+#import <MBProgressHUD/MBProgressHUD.h>
 
 
 @interface XFErrorView : UIControl
@@ -137,9 +137,7 @@
     [hud hide:YES afterDelay:1.5];
 }
 
-- (void)showCenterInfoWithStatus:(NSString *)status {
-    float h = [UIScreen mainScreen].bounds.size.height;
-    
+- (void)showInfoAtWindowCenterWithStatus:(NSString *)status {
     UIWindow *window = [[[UIApplication sharedApplication] windows] lastObject];
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:window animated:YES];
@@ -166,7 +164,6 @@
 
 - (NSNumber *)mainRequestFailure {
     [self closeLoadingView];
-    
     [self showErrorView];
     
     return @1;

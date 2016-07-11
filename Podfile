@@ -8,6 +8,8 @@ target 'XFFoundation' do
    pod 'YYKit'
    pod 'SVProgressHUD'
    pod 'AFNetworking'
+   pod 'MBProgressHUD'
+   pod 'MJRefresh'
 end
 
 
