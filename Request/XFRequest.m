@@ -91,6 +91,7 @@
         if (self.finishBlock) {
             self.finishBlock(self,result);
         }
+        
         if (self.delegate && [self.delegate respondsToSelector:@selector(request:finishedWithResult:)]) {
             [self.delegate request:self finishedWithResult:result];
         }

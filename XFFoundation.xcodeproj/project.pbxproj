@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1BEB3F16C3BE5B35BD606111 /* libPods-XFFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 332EE1CACA1FFEABFD268A85 /* libPods-XFFoundation.a */; };
+		EC15C3A31D40A5440056730A /* XFInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC15C3A21D40A5440056730A /* XFInfoView.m */; };
+		EC15C3A91D40AE360056730A /* XFLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC15C3A81D40AE360056730A /* XFLoadingView.m */; };
 		EC2FF9871D33345D00C3F52F /* XFBannerScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2FF9771D33345D00C3F52F /* XFBannerScrollView.m */; };
 		EC2FF9881D33345D00C3F52F /* XFExcelView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2FF9791D33345D00C3F52F /* XFExcelView.m */; };
 		EC2FF9891D33345D00C3F52F /* XFExcelViewTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2FF97B1D33345D00C3F52F /* XFExcelViewTitleCell.m */; };
@@ -40,6 +42,10 @@
 		255796C8491D7A542FA36502 /* Pods-XFFoundation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XFFoundation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XFFoundation/Pods-XFFoundation.debug.xcconfig"; sourceTree = "<group>"; };
 		332EE1CACA1FFEABFD268A85 /* libPods-XFFoundation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XFFoundation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B905CF89A373E259C7EE3A9 /* Pods-XFFoundation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XFFoundation.release.xcconfig"; path = "Pods/Target Support Files/Pods-XFFoundation/Pods-XFFoundation.release.xcconfig"; sourceTree = "<group>"; };
+		EC15C3A11D40A5440056730A /* XFInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFInfoView.h; sourceTree = "<group>"; };
+		EC15C3A21D40A5440056730A /* XFInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFInfoView.m; sourceTree = "<group>"; };
+		EC15C3A71D40AE360056730A /* XFLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFLoadingView.h; sourceTree = "<group>"; };
+		EC15C3A81D40AE360056730A /* XFLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFLoadingView.m; sourceTree = "<group>"; };
 		EC2FF9761D33345D00C3F52F /* XFBannerScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFBannerScrollView.h; sourceTree = "<group>"; };
 		EC2FF9771D33345D00C3F52F /* XFBannerScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFBannerScrollView.m; sourceTree = "<group>"; };
 		EC2FF9781D33345D00C3F52F /* XFExcelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFExcelView.h; sourceTree = "<group>"; };
@@ -213,6 +219,8 @@
 		ECB9445D1D07BDA800ED3229 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EC15C3A11D40A5440056730A /* XFInfoView.h */,
+				EC15C3A21D40A5440056730A /* XFInfoView.m */,
 				EC2FF9761D33345D00C3F52F /* XFBannerScrollView.h */,
 				EC2FF9771D33345D00C3F52F /* XFBannerScrollView.m */,
 				EC2FF9781D33345D00C3F52F /* XFExcelView.h */,
@@ -232,6 +240,8 @@
 				EC2FF9861D33345D00C3F52F /* XFTopTabBar.m */,
 				EC2FF9961D33378A00C3F52F /* XFEmptyView.h */,
 				EC2FF9971D33378A00C3F52F /* XFEmptyView.m */,
+				EC15C3A71D40AE360056730A /* XFLoadingView.h */,
+				EC15C3A81D40AE360056730A /* XFLoadingView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -384,8 +394,10 @@
 				EC33E8BA1D1A70F200F74C7C /* XFRequest.m in Sources */,
 				ECB9445A1D07BC3F00ED3229 /* XFAppDelegate.m in Sources */,
 				ECB9445C1D07BC3F00ED3229 /* XFPluginManager.m in Sources */,
+				EC15C3A91D40AE360056730A /* XFLoadingView.m in Sources */,
 				EC2FF9871D33345D00C3F52F /* XFBannerScrollView.m in Sources */,
 				EC33E8BB1D1A70F200F74C7C /* XFRequestQueue.m in Sources */,
+				EC15C3A31D40A5440056730A /* XFInfoView.m in Sources */,
 				ECB944421D07BBBC00ED3229 /* ViewController.m in Sources */,
 				ECB9443F1D07BBBC00ED3229 /* AppDelegate.m in Sources */,
 				EC2FF98B1D33345D00C3F52F /* XFLineView.m in Sources */,

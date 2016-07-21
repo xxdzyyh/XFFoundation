@@ -20,8 +20,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+}
 
-    [self.view addSubview:self.tableView];
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    
+    self.tableView.frame = self.view.bounds;
 }
 
 - (UITableViewCell *)seperatorCell {
@@ -54,18 +59,20 @@
 #pragma mark - setter & getter 
 
 - (UITableView *)tableView {
-    
-    if (nil == _tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
 
-        _tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-        _tableView.delegate = self;
-        _tableView.dataSource = self;
-        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        _tableView.showsVerticalScrollIndicator = NO;
-        _tableView.showsHorizontalScrollIndicator = NO;
-        _tableView.tableFooterView = [UIView new];
-    }
+        if (nil == _tableView) {
+            _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+            
+            _tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+            _tableView.delegate = self;
+            _tableView.dataSource = self;
+            _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+            _tableView.showsVerticalScrollIndicator = NO;
+            _tableView.showsHorizontalScrollIndicator = NO;
+            _tableView.tableFooterView = [UIView new];
+            
+            [self.view addSubview:_tableView];
+        }
     return _tableView;
 }
 
@@ -99,7 +106,6 @@
 }
 
 - (void)setDataSource:(NSMutableArray *)dataSource {
-    
     if (_dataSource != dataSource) {
         
         _dataSource = dataSource;

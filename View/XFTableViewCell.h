@@ -8,24 +8,33 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XFTableViewCell : UITableViewCell
+@protocol XFTableViewCell<NSObject>
+
+@optional
+
+/*! 子类实现 */
++ (float)heightForLabel:(NSString *)title;
+
+@end
+
+@interface XFTableViewCell : UITableViewCell<XFTableViewCell>
 
 @property (weak  , nonatomic) id delegate;
 @property (strong, nonatomic) id data;
 
-+ (NSString *)identifier;
 + (NSInteger)cellHeight;
 
 + (id)cellForTableView:(UITableView *)tableView;
 
 - (void)configCellWithData:(id)item;
 
-+ (UIImage *)imageWithColor:(UIColor *)color;
-
-- (UIImage *)originImage:(UIImage *)image scaleToSize:(CGSize)size;
-
 - (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size;
 
 - (void)showInfoWithStatus:(NSString *)status;
 
++ (float)heightForLableWithText:(NSString *)text
+                           font:(UIFont *)font
+                    perferWidth:(float)width;
+
+- (void)addCornerRadius:(float)cornerRadius toView:(UIView *)view;
 @end

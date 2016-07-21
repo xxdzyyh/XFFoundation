@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import "XFRequest.h"
 #import "AFHTTPSessionManager.h"
+#import "XFInfoView.h"
+#import "XFLoadingView.h"
 
 @interface ViewController ()
 
@@ -18,13 +20,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.view.backgroundColor = [UIColor orangeColor];
 //    
-//    XFRequest *request0 = [[XFRequest alloc] initWithPath:@"" finish:^(XFRequest *request, id result) {
+    XFRequest *request0 = [[XFRequest alloc] initWithPath:@"" finish:^(XFRequest *request, id result) {
+
+        NSLog(@"%@",result);
+        
+    }];
 //
-//        NSLog(@"%@",result);
-//        
-//    }];
-//    
 //    [request0 addParameter:@"name" value:@"wangxuefeng"];
 //    
 //    [request0 start];
@@ -41,14 +45,22 @@
 ////        
 ////    }];
 ////    
-////    [self.mainQueue push:request0];
-////    
+    [self.mainQueue push:request0];
+////
 ////    [self.mainQueue push:request1];
 ////    
 ////    [self.mainQueue push:request2];
 //
     
-    [self upload:@"http://localhost:8080/TomcatTest/HelloJSP"];
+//    [self upload:@"http://localhost:8080/TomcatTest/HelloJSP"];
+//    
+//    XFInfoView *infoView = [[XFInfoView alloc] initWithInfo:@"xxxyyy" imageName:@"red_public_welfare"];
+//    
+//    [infoView showAtView:self.view];
+    
+    XFLoadingView *loadingView = [XFLoadingView loadingView];
+    
+    [loadingView showAtView:self.view];
 }
 
 

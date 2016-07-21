@@ -9,54 +9,37 @@
 #import "XFViewController.h"
 #import <SVProgressHUD/SVProgressHUD.h>
 #import <MBProgressHUD/MBProgressHUD.h>
+#import "XFEmptyView.h"
 
-
-@interface XFErrorView : UIControl
-
-@property (strong, nonatomic) UIImage *errorImage;
-@property (strong, nonatomic) UILabel *lblMessage;
-
-@end
-
-@implementation XFErrorView
-
-- (instancetype)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    if (self) {
-        self.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-        self.backgroundColor = [UIColor whiteColor];
-        
-        _lblMessage = [[UILabel alloc] initWithFrame:self.bounds];
-
-        _lblMessage.textAlignment = NSTextAlignmentCenter;
-        _lblMessage.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-        
-        [self addSubview:_lblMessage];
-    }
-    return self;
+@interface XFViewController () {
+    // 是否为第一次加载数据
+    BOOL _isFisrtLoading;
 }
 
-- (void)willMoveToSuperview:(UIView *)newSuperview {
-    [super willMoveToSuperview:newSuperview];
-    
-    self.frame = [super bounds];
-}
-@end
-
-@interface XFViewController ()
-
-@property (strong, nonatomic) XFErrorView * errorView;
-
+@property (strong, nonatomic) XFEmptyView *errorView;
 @property (weak  , nonatomic) UIView *loadingSuperiew;
-
 @property (strong, nonatomic) MBProgressHUD *hud;
 
 @end
 
 @implementation XFViewController
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        
+        // default is YES
+        _shouldShowErrorView = YES;
+        _dataType = XFDataTypeRequest;
+        _isFisrtLoading = YES;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.view.backgroundColor = [UIColor whiteColor];
     
     float h = [UIScreen mainScreen].bounds.size.height;
     
@@ -64,38 +47,33 @@
     [SVProgressHUD setInfoImage:nil];
     [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeClear];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestFailedNeedLogin) name:@"kReuqestNeedLogin" object:nil];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillAppear) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillDisappear) name:UIKeyboardWillHideNotification object:nil];
+- (void)requestFailedNeedLogin {
+    [self closeLoadingView];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
-    
+
     [self closeLoadingView];
 }
 
-- (void)keyboardWillAppear {
-    _keyboardShowing = YES;
-}
-
-- (void)keyboardWillDisappear {
-    _keyboardShowing = NO;
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"kReuqestNeedLogin" object:nil];
 }
 
 #pragma mark - event response
 
 - (void)retryAfterRequestFailed {
+    [self closeErrorView];
     [self.mainQueue execute];
 }
 
 - (void)setErrorMessage:(NSString *)errorMessage {
-    self.errorView.lblMessage.text = errorMessage;
+    self.errorView.title = errorMessage;
 }
 
 - (void)showErrorView {
@@ -111,13 +89,29 @@
 }
 
 - (void)showLoadingView {
-    _hud = nil;
-    [self.hud show:YES];
+    if (_isHUDShowing == YES) {
+        return;
+    } else {
+        UIWindow *window = [[[UIApplication sharedApplication] windows] lastObject];
+        
+        if (![_hud.superview isEqual:window]) {
+            _hud = nil;
+        }
+        
+        if (_isFisrtLoading) {
+            self.hud.backgroundColor = [UIColor whiteColor];
+        } else {
+            self.hud.backgroundColor = [UIColor clearColor];
+        }
+        
+        [self.hud show:YES];
+        _isHUDShowing = YES;
+    }
 }
 
 - (void)closeLoadingView {
-
     [_hud hide:YES];
+    _isHUDShowing = NO;
 }
 
 - (void)showInfoWithStatus:(NSString *)status {
@@ -151,22 +145,57 @@
     [hud hide:YES afterDelay:1.5];
 }
 
+- (void)showCenterInfoWithStatus:(NSString *)status {
+    UIWindow *window = [[[UIApplication sharedApplication] windows] lastObject];
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:window animated:YES];
+    
+    hud.userInteractionEnabled = NO;
+    hud.mode = MBProgressHUDModeText;
+    hud.labelText = status;
+    hud.margin = 10.f;
+    hud.removeFromSuperViewOnHide = YES;
+    
+    [hud hide:YES afterDelay:1.5];
+}
+
 #pragma mark - request queue
 
 - (void)mainRequestStart {
     [self closeLoadingView];
-    [self showLoadingView];
+    
+    switch (self.hudType) {
+        case XFHUDTypeDefault: {
+            [self showLoadingView];
+            break;
+        }
+        case XFHUDTypeNone: {
+            
+            break;
+        }
+        case XFHUDTypeProgress: {
+            [self showLoadingView];
+            break;
+        }
+        case XFHUDTypeNetIndictor: {
+            
+            break;
+        }
+    }
 }
 
 - (void)mainRequestFinish {
     [self closeLoadingView];
+    _isFisrtLoading = NO;
 }
 
 - (NSNumber *)mainRequestFailure {
+    _isFisrtLoading = NO;
+    
     [self closeLoadingView];
     [self showErrorView];
     
-    return @1;
+    return @(self.shouldShowErrorView);
 }
 
 - (void)mainRequestSuccess {
@@ -175,9 +204,11 @@
 
 #pragma mark - getter & setter
 
-- (XFErrorView *)errorView {
+- (XFEmptyView *)errorView {
     if (_errorView == nil) {
-        _errorView = [[XFErrorView alloc] initWithFrame:self.view.bounds];
+        _errorView = [[XFEmptyView alloc] initWithFrame:self.view.bounds];
+        
+        _errorView.imageName = @"img_mr_nowifi";
         
         [_errorView addTarget:self action:@selector(retryAfterRequestFailed) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -227,5 +258,6 @@
     
     return image;
 }
+
 
 @end

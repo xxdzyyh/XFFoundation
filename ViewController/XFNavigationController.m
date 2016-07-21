@@ -14,13 +14,22 @@
 
 @implementation XFNavigationController
 
++ (UIColor *)titleColor {
+    return [UIColor whiteColor];
+}
+
++ (UIColor *)barBackColor {
+    return [UIColor colorWithRed:0.216 green:0.259 blue:0.337 alpha:1.00];
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.navigationBar.titleTextAttributes = @{NSFontAttributeName:[UIFont systemFontOfSize:18],
-                                               NSForegroundColorAttributeName:[UIColor whiteColor]};
+                                               NSForegroundColorAttributeName:[[self class] titleColor]};
 
-    self.navigationBar.barTintColor = [UIColor orangeColor];
+    self.navigationBar.barTintColor = [[self class] barBackColor];
     self.navigationBar.translucent = NO;
     
     UIImage *image = [UIImage new];

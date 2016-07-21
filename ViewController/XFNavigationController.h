@@ -19,4 +19,8 @@
  */
 //- (void)onCustomBackItemClicked:(id)sender;
 
++ (UIColor *)titleColor;
+
++ (UIColor *)barBackColor;
+
 @end
