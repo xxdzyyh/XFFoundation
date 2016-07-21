@@ -51,10 +51,6 @@ typedef NS_ENUM(NSUInteger,XFDataType) {
 
 + (UIImage *)imageWithColor:(UIColor *)color;
 
-- (void)showEmptyView;
-
-- (void)hiddenEmptyView;
-
 - (void)onCustomBackItemClicked:(id)sender;
 
 - (void)showLoginViewController;

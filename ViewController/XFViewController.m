@@ -10,15 +10,18 @@
 #import <SVProgressHUD/SVProgressHUD.h>
 #import <MBProgressHUD/MBProgressHUD.h>
 #import "XFEmptyView.h"
+#import "XFErrorView.h"
+#import "XFLoadingView.h"
 
-@interface XFViewController () {
+@interface XFViewController () <XFErrorViewDelegate> {
     // 是否为第一次加载数据
     BOOL _isFisrtLoading;
 }
 
-@property (strong, nonatomic) XFEmptyView *errorView;
-@property (weak  , nonatomic) UIView *loadingSuperiew;
+@property (strong, nonatomic) XFErrorView   *errorView;
+@property (weak  , nonatomic) UIView        *loadingSuperiew;
 @property (strong, nonatomic) MBProgressHUD *hud;
+@property (strong, nonatomic) XFLoadingView *loadingView;
 
 @end
 
@@ -40,8 +43,6 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
-    
-    float h = [UIScreen mainScreen].bounds.size.height;
     
     [SVProgressHUD setMinimumDismissTimeInterval:1.5];
     [SVProgressHUD setInfoImage:nil];
@@ -72,8 +73,12 @@
     [self.mainQueue execute];
 }
 
+- (void)recoveryFromError:(XFErrorView *)errorView {
+    [self retryAfterRequestFailed];
+}
+
 - (void)setErrorMessage:(NSString *)errorMessage {
-    self.errorView.title = errorMessage;
+    self.errorView.info = errorMessage;
 }
 
 - (void)showErrorView {
@@ -92,25 +97,32 @@
     if (_isHUDShowing == YES) {
         return;
     } else {
-        UIWindow *window = [[[UIApplication sharedApplication] windows] lastObject];
-        
-        if (![_hud.superview isEqual:window]) {
-            _hud = nil;
-        }
-        
         if (_isFisrtLoading) {
-            self.hud.backgroundColor = [UIColor whiteColor];
+            [self.loadingView showAtView:self.view];
         } else {
+            UIWindow *window = [[[UIApplication sharedApplication] windows] lastObject];
+            
+            if (![_hud.superview isEqual:window]) {
+                _hud = nil;
+            }
             self.hud.backgroundColor = [UIColor clearColor];
+            [self.hud show:YES];
+            
         }
-        
-        [self.hud show:YES];
         _isHUDShowing = YES;
     }
 }
 
 - (void)closeLoadingView {
-    [_hud hide:YES];
+    
+    if (_hud.superview) {
+        [_hud hide:YES];
+    }
+    
+    if (self.loadingView.superview) {
+        [self.loadingView dismiss];
+    }
+    
     _isHUDShowing = NO;
 }
 
@@ -204,13 +216,19 @@
 
 #pragma mark - getter & setter
 
-- (XFEmptyView *)errorView {
+- (XFLoadingView *)loadingView {
+    if (_loadingView == nil) {
+        _loadingView = [XFLoadingView loadingView];
+    }
+    return _loadingView;
+}
+
+- (XFErrorView *)errorView {
     if (_errorView == nil) {
-        _errorView = [[XFEmptyView alloc] initWithFrame:self.view.bounds];
+        _errorView = [[XFErrorView alloc] initWithFrame:self.view.bounds];
         
         _errorView.imageName = @"img_mr_nowifi";
-        
-        [_errorView addTarget:self action:@selector(retryAfterRequestFailed) forControlEvents:UIControlEventTouchUpInside];
+        _errorView.delegate = self;
     }
     return _errorView;
 }

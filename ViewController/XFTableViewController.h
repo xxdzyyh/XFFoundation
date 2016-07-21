@@ -15,6 +15,10 @@
 - (UITableView *)tableView;
 - (XFEmptyView *)emptyView;
 
+- (void)showEmptyView;
+
+- (void)hiddenEmptyView;
+
 @property (copy  , nonatomic) NSString *emptyTitle;
 @property (copy  , nonatomic) NSString *emptyImageName;
 @property (strong, nonatomic) NSMutableArray *dataSource;

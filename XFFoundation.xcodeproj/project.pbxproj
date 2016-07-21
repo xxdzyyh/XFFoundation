@@ -10,6 +10,7 @@
 		1BEB3F16C3BE5B35BD606111 /* libPods-XFFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 332EE1CACA1FFEABFD268A85 /* libPods-XFFoundation.a */; };
 		EC15C3A31D40A5440056730A /* XFInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC15C3A21D40A5440056730A /* XFInfoView.m */; };
 		EC15C3A91D40AE360056730A /* XFLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC15C3A81D40AE360056730A /* XFLoadingView.m */; };
+		EC1D25591D40C2B6002F8E19 /* XFErrorView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC1D25581D40C2B6002F8E19 /* XFErrorView.m */; };
 		EC2FF9871D33345D00C3F52F /* XFBannerScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2FF9771D33345D00C3F52F /* XFBannerScrollView.m */; };
 		EC2FF9881D33345D00C3F52F /* XFExcelView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2FF9791D33345D00C3F52F /* XFExcelView.m */; };
 		EC2FF9891D33345D00C3F52F /* XFExcelViewTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2FF97B1D33345D00C3F52F /* XFExcelViewTitleCell.m */; };
@@ -46,6 +47,8 @@
 		EC15C3A21D40A5440056730A /* XFInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFInfoView.m; sourceTree = "<group>"; };
 		EC15C3A71D40AE360056730A /* XFLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFLoadingView.h; sourceTree = "<group>"; };
 		EC15C3A81D40AE360056730A /* XFLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFLoadingView.m; sourceTree = "<group>"; };
+		EC1D25571D40C2B6002F8E19 /* XFErrorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFErrorView.h; sourceTree = "<group>"; };
+		EC1D25581D40C2B6002F8E19 /* XFErrorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFErrorView.m; sourceTree = "<group>"; };
 		EC2FF9761D33345D00C3F52F /* XFBannerScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFBannerScrollView.h; sourceTree = "<group>"; };
 		EC2FF9771D33345D00C3F52F /* XFBannerScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFBannerScrollView.m; sourceTree = "<group>"; };
 		EC2FF9781D33345D00C3F52F /* XFExcelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFExcelView.h; sourceTree = "<group>"; };
@@ -242,6 +245,8 @@
 				EC2FF9971D33378A00C3F52F /* XFEmptyView.m */,
 				EC15C3A71D40AE360056730A /* XFLoadingView.h */,
 				EC15C3A81D40AE360056730A /* XFLoadingView.m */,
+				EC1D25571D40C2B6002F8E19 /* XFErrorView.h */,
+				EC1D25581D40C2B6002F8E19 /* XFErrorView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -387,6 +392,7 @@
 				EC2FF9981D33378A00C3F52F /* XFEmptyView.m in Sources */,
 				EC2FF9891D33345D00C3F52F /* XFExcelViewTitleCell.m in Sources */,
 				EC2FF9951D33346F00C3F52F /* XFRefreshTableViewController.m in Sources */,
+				EC1D25591D40C2B6002F8E19 /* XFErrorView.m in Sources */,
 				ECB9445B1D07BC3F00ED3229 /* XFPlugin.m in Sources */,
 				EC2FF98C1D33345D00C3F52F /* XFSearchHistoryTableViewCell.m in Sources */,
 				ECB944731D07BF0F00ED3229 /* XFViewController.m in Sources */,
