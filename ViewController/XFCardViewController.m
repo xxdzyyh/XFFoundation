@@ -5,7 +5,7 @@
 //
 
 #import "XFCardViewController.h"
-#import "UIViewExt.h"
+#import "UIView+YYAdd.h"
 
 #define SWidth [[UIScreen mainScreen] bounds].size.width
 

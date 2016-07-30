@@ -9,7 +9,7 @@
 #import "XFHSwipeViewController.h"
 #import "XFTopTabBar.h"
 #import "XFCardViewController.h"
-#import "UIViewExt.h"
+#import "UIView+YYAdd.h"
 
 @interface XFHSwipeViewController () <XFTopTabBarDelegate,XFCardViewControllerDelegate>
 
