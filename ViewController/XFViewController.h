@@ -31,14 +31,15 @@ typedef NS_ENUM(NSUInteger,XFDataType) {
 
 @property (assign, nonatomic) BOOL isHUDShowing;
 
+// 是否显示XFLoadingView，default is NO
+@property (assign, nonatomic) BOOL isFisrtLoading;
+
 - (void)setErrorMessage:(NSString *)errorMessage;
 
 /** 显示一个错位的视图 */
 - (void)showErrorView;
 
-/**
- *  调用该方法重新发送失败的请求
- */
+/*！调用该方法重新发送失败的请求 */
 - (void)retryAfterRequestFailed;
 
 - (void)showLoadingView;
@@ -56,4 +57,5 @@ typedef NS_ENUM(NSUInteger,XFDataType) {
 - (void)showLoginViewController;
 
 - (void)sendDefaultRequest;
+
 @end

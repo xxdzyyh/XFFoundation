@@ -19,5 +19,6 @@
 #import "XFAppDelegate.h"
 #import "XFPlugin.h"
 #import "XFPluginManager.h"
+#import "XFHSwipeViewController.h"
 
 #endif /* XFFoundation_h */

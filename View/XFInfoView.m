@@ -61,21 +61,25 @@
     
     [self configContainerViewSize];
     
-    _vContainer.center = superview.center;
-    
     self.frame = superview.bounds;
+    
+    _vContainer.center = self.center;
+    
     self.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
     
     [superview addSubview:self];
 }
 
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    _vContainer.center = self.center;
+}
+
 - (void)dismiss {
-    [UIView animateWithDuration:0.3 animations:^{
-        
+    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.alpha = 0;
-        
     } completion:^(BOOL finished) {
-        
         [self removeFromSuperview];
     }];
 }

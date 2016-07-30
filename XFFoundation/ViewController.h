@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "XFViewController.h"
+#import "XFTableViewController.h"
 
-@interface ViewController : XFViewController
+@interface ViewController : XFTableViewController
+
 
 
 @end

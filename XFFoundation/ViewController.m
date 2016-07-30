@@ -11,6 +11,10 @@
 #import "AFHTTPSessionManager.h"
 #import "XFInfoView.h"
 #import "XFLoadingView.h"
+#import "CTQMainMemberCell.h"
+#import "CTQMember.h"
+#import "YYKit.h"
+#import "CTQMemberView.h"
 
 @interface ViewController ()
 
@@ -22,47 +26,55 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor orangeColor];
-//    
-    XFRequest *request0 = [[XFRequest alloc] initWithPath:@"" finish:^(XFRequest *request, id result) {
-
-        NSLog(@"%@",result);
+    
+    
+    NSDictionary *dict = @{@"memberId":@84949,@"introduce":@"沈鹏，水滴互助创始人、CEO，美团网第十号员工、美团外卖负责人，曾负责美团外卖全国业务。",@"memberName":@"沈鹏",@"userportrait":@"https://cdn.itjuzi.com/images/3c3d99e322eb87ac8ae2c667dbdb8213.jpg?imageView2/0/w/58/q/100",@"position":@"CEO"};
+    
+    NSMutableArray *temp = [NSMutableArray array];
+    
+    for (int i=0;i<1;i++) {
+        CTQMember *member = [CTQMember modelWithDictionary:dict];
         
-    }];
-//
-//    [request0 addParameter:@"name" value:@"wangxuefeng"];
-//    
-//    [request0 start];
-////
-////    XFRequest *request1 = [[XFRequest alloc] initWithPath:@"" finish:^(XFRequest *request, id result) {
-////        
-////        NSLog(@"%@",result);
-////        
-////    }];
-////    
-////    XFRequest *request2 = [[XFRequest alloc] initWithPath:@"" finish:^(XFRequest *request, id result) {
-////        
-////        NSLog(@"%@",result);
-////        
-////    }];
-////    
-    [self.mainQueue push:request0];
-////
-////    [self.mainQueue push:request1];
-////    
-////    [self.mainQueue push:request2];
-//
+        [temp addObject:member];
+    }
     
-//    [self upload:@"http://localhost:8080/TomcatTest/HelloJSP"];
-//    
-//    XFInfoView *infoView = [[XFInfoView alloc] initWithInfo:@"xxxyyy" imageName:@"red_public_welfare"];
-//    
-//    [infoView showAtView:self.view];
-    
-    XFLoadingView *loadingView = [XFLoadingView loadingView];
-    
-    [loadingView showAtView:self.view];
+    self.dataSource = temp;
 }
 
+#pragma mark - UITableViewDelegate & UITableViewSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    return 1;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    
+    return 1;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    CTQMainMemberCell *cell = [CTQMainMemberCell cellForTableView:tableView];
+    
+//    [cell configCellWithData:self.dataSource];
+  
+    CTQMemberView *view = [[CTQMemberView alloc] initWithMember:self.dataSource];
+    
+    view.size = view.intrinsicContentSize;
+    view.center = cell.contentView.center;
+    
+    [cell.contentView addSubview:view];
+    
+    [XFLineHelper addBottomLineToView:cell];
+    
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return [CTQMainMemberCell cellHeight];
+}
 
 - (void)upload:(NSString *)uploadUrl {
     
@@ -74,9 +86,9 @@
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
     [manager setRequestSerializer:[AFJSONRequestSerializer serializer]];
-
-//    [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-//    [manager.requestSerializer setValue:@"application/json; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    //    [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    //    [manager.requestSerializer setValue:@"application/json; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/plain",@"text/html", nil];
     
@@ -92,4 +104,5 @@
         
     }];
 }
+
 @end

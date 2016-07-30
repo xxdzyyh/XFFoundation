@@ -11,6 +11,14 @@
 		EC15C3A31D40A5440056730A /* XFInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC15C3A21D40A5440056730A /* XFInfoView.m */; };
 		EC15C3A91D40AE360056730A /* XFLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC15C3A81D40AE360056730A /* XFLoadingView.m */; };
 		EC1D25591D40C2B6002F8E19 /* XFErrorView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC1D25581D40C2B6002F8E19 /* XFErrorView.m */; };
+		EC1D255F1D40DDB7002F8E19 /* CTQMainMemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC1D255B1D40DDB7002F8E19 /* CTQMainMemberCell.m */; };
+		EC1D25601D40DDB7002F8E19 /* CTQMainMemberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC1D255C1D40DDB7002F8E19 /* CTQMainMemberCell.xib */; };
+		EC1D25611D40DDB7002F8E19 /* CTQPeopleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC1D255E1D40DDB7002F8E19 /* CTQPeopleCell.m */; };
+		EC1D25651D40DE04002F8E19 /* CTQPeopleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC1D25621D40DE04002F8E19 /* CTQPeopleCell.xib */; };
+		EC1D25661D40DE04002F8E19 /* CTQPeopleView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC1D25641D40DE04002F8E19 /* CTQPeopleView.m */; };
+		EC1D25691D40DE76002F8E19 /* CTQMember.m in Sources */ = {isa = PBXBuildFile; fileRef = EC1D25681D40DE76002F8E19 /* CTQMember.m */; };
+		EC1D256C1D40EEA8002F8E19 /* CTQMemberView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC1D256B1D40EEA8002F8E19 /* CTQMemberView.m */; };
+		EC1D256E1D40EFCC002F8E19 /* CTQSingleMemberView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC1D256D1D40EFCC002F8E19 /* CTQSingleMemberView.xib */; };
 		EC2FF9871D33345D00C3F52F /* XFBannerScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2FF9771D33345D00C3F52F /* XFBannerScrollView.m */; };
 		EC2FF9881D33345D00C3F52F /* XFExcelView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2FF9791D33345D00C3F52F /* XFExcelView.m */; };
 		EC2FF9891D33345D00C3F52F /* XFExcelViewTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2FF97B1D33345D00C3F52F /* XFExcelViewTitleCell.m */; };
@@ -36,6 +44,8 @@
 		ECB9445C1D07BC3F00ED3229 /* XFPluginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ECB944591D07BC3F00ED3229 /* XFPluginManager.m */; };
 		ECB944701D07BE6B00ED3229 /* XFTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECB9446E1D07BE6B00ED3229 /* XFTableViewController.m */; };
 		ECB944731D07BF0F00ED3229 /* XFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECB944721D07BF0F00ED3229 /* XFViewController.m */; };
+		ECC5BFE01D4CAFAB003D889F /* XFCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC5BFDD1D4CAFAB003D889F /* XFCardViewController.m */; };
+		ECC5BFE11D4CAFAB003D889F /* XFHSwipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC5BFDF1D4CAFAB003D889F /* XFHSwipeViewController.m */; };
 		ECEACCE81D1B772200832429 /* red_public_welfare@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ECEACCE71D1B772200832429 /* red_public_welfare@3x.png */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +59,19 @@
 		EC15C3A81D40AE360056730A /* XFLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFLoadingView.m; sourceTree = "<group>"; };
 		EC1D25571D40C2B6002F8E19 /* XFErrorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFErrorView.h; sourceTree = "<group>"; };
 		EC1D25581D40C2B6002F8E19 /* XFErrorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFErrorView.m; sourceTree = "<group>"; };
+		EC1D255A1D40DDB7002F8E19 /* CTQMainMemberCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTQMainMemberCell.h; sourceTree = "<group>"; };
+		EC1D255B1D40DDB7002F8E19 /* CTQMainMemberCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTQMainMemberCell.m; sourceTree = "<group>"; };
+		EC1D255C1D40DDB7002F8E19 /* CTQMainMemberCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CTQMainMemberCell.xib; sourceTree = "<group>"; };
+		EC1D255D1D40DDB7002F8E19 /* CTQPeopleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTQPeopleCell.h; sourceTree = "<group>"; };
+		EC1D255E1D40DDB7002F8E19 /* CTQPeopleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTQPeopleCell.m; sourceTree = "<group>"; };
+		EC1D25621D40DE04002F8E19 /* CTQPeopleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CTQPeopleCell.xib; sourceTree = "<group>"; };
+		EC1D25631D40DE04002F8E19 /* CTQPeopleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTQPeopleView.h; sourceTree = "<group>"; };
+		EC1D25641D40DE04002F8E19 /* CTQPeopleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTQPeopleView.m; sourceTree = "<group>"; };
+		EC1D25671D40DE76002F8E19 /* CTQMember.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTQMember.h; sourceTree = "<group>"; };
+		EC1D25681D40DE76002F8E19 /* CTQMember.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTQMember.m; sourceTree = "<group>"; };
+		EC1D256A1D40EEA8002F8E19 /* CTQMemberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTQMemberView.h; sourceTree = "<group>"; };
+		EC1D256B1D40EEA8002F8E19 /* CTQMemberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTQMemberView.m; sourceTree = "<group>"; };
+		EC1D256D1D40EFCC002F8E19 /* CTQSingleMemberView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CTQSingleMemberView.xib; sourceTree = "<group>"; };
 		EC2FF9761D33345D00C3F52F /* XFBannerScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFBannerScrollView.h; sourceTree = "<group>"; };
 		EC2FF9771D33345D00C3F52F /* XFBannerScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFBannerScrollView.m; sourceTree = "<group>"; };
 		EC2FF9781D33345D00C3F52F /* XFExcelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFExcelView.h; sourceTree = "<group>"; };
@@ -98,6 +121,10 @@
 		ECB9446E1D07BE6B00ED3229 /* XFTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFTableViewController.m; sourceTree = "<group>"; };
 		ECB944711D07BF0F00ED3229 /* XFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFViewController.h; sourceTree = "<group>"; };
 		ECB944721D07BF0F00ED3229 /* XFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFViewController.m; sourceTree = "<group>"; };
+		ECC5BFDC1D4CAFAB003D889F /* XFCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFCardViewController.h; sourceTree = "<group>"; };
+		ECC5BFDD1D4CAFAB003D889F /* XFCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFCardViewController.m; sourceTree = "<group>"; };
+		ECC5BFDE1D4CAFAB003D889F /* XFHSwipeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFHSwipeViewController.h; sourceTree = "<group>"; };
+		ECC5BFDF1D4CAFAB003D889F /* XFHSwipeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFHSwipeViewController.m; sourceTree = "<group>"; };
 		ECEACCE71D1B772200832429 /* red_public_welfare@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red_public_welfare@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -176,6 +203,16 @@
 		ECB944391D07BBBC00ED3229 /* XFFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				EC1D25671D40DE76002F8E19 /* CTQMember.h */,
+				EC1D25681D40DE76002F8E19 /* CTQMember.m */,
+				EC1D25621D40DE04002F8E19 /* CTQPeopleCell.xib */,
+				EC1D25631D40DE04002F8E19 /* CTQPeopleView.h */,
+				EC1D25641D40DE04002F8E19 /* CTQPeopleView.m */,
+				EC1D255A1D40DDB7002F8E19 /* CTQMainMemberCell.h */,
+				EC1D255B1D40DDB7002F8E19 /* CTQMainMemberCell.m */,
+				EC1D255C1D40DDB7002F8E19 /* CTQMainMemberCell.xib */,
+				EC1D255D1D40DDB7002F8E19 /* CTQPeopleCell.h */,
+				EC1D255E1D40DDB7002F8E19 /* CTQPeopleCell.m */,
 				ECB9443D1D07BBBC00ED3229 /* AppDelegate.h */,
 				ECB9443E1D07BBBC00ED3229 /* AppDelegate.m */,
 				ECB944401D07BBBC00ED3229 /* ViewController.h */,
@@ -186,6 +223,9 @@
 				ECB9444B1D07BBBC00ED3229 /* Info.plist */,
 				ECEACCE71D1B772200832429 /* red_public_welfare@3x.png */,
 				ECB9443A1D07BBBC00ED3229 /* Supporting Files */,
+				EC1D256A1D40EEA8002F8E19 /* CTQMemberView.h */,
+				EC1D256B1D40EEA8002F8E19 /* CTQMemberView.m */,
+				EC1D256D1D40EFCC002F8E19 /* CTQSingleMemberView.xib */,
 			);
 			path = XFFoundation;
 			sourceTree = "<group>";
@@ -256,10 +296,14 @@
 			children = (
 				ECB944711D07BF0F00ED3229 /* XFViewController.h */,
 				ECB944721D07BF0F00ED3229 /* XFViewController.m */,
+				ECC5BFDC1D4CAFAB003D889F /* XFCardViewController.h */,
+				ECC5BFDD1D4CAFAB003D889F /* XFCardViewController.m */,
 				ECB9446D1D07BE6B00ED3229 /* XFTableViewController.h */,
 				ECB9446E1D07BE6B00ED3229 /* XFTableViewController.m */,
 				EC2FF9901D33346F00C3F52F /* XFNavigationController.h */,
 				EC2FF9911D33346F00C3F52F /* XFNavigationController.m */,
+				ECC5BFDE1D4CAFAB003D889F /* XFHSwipeViewController.h */,
+				ECC5BFDF1D4CAFAB003D889F /* XFHSwipeViewController.m */,
 				EC2FF9921D33346F00C3F52F /* XFRefreshTableViewController.h */,
 				EC2FF9931D33346F00C3F52F /* XFRefreshTableViewController.m */,
 			);
@@ -327,8 +371,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECB9444A1D07BBBC00ED3229 /* LaunchScreen.storyboard in Resources */,
+				EC1D25601D40DDB7002F8E19 /* CTQMainMemberCell.xib in Resources */,
 				ECEACCE81D1B772200832429 /* red_public_welfare@3x.png in Resources */,
 				ECB944471D07BBBC00ED3229 /* Assets.xcassets in Resources */,
+				EC1D25651D40DE04002F8E19 /* CTQPeopleCell.xib in Resources */,
+				EC1D256E1D40EFCC002F8E19 /* CTQSingleMemberView.xib in Resources */,
 				EC2FF98D1D33345D00C3F52F /* XFSearchHistoryTableViewCell.xib in Resources */,
 				ECB944451D07BBBC00ED3229 /* Main.storyboard in Resources */,
 			);
@@ -394,7 +441,10 @@
 				EC2FF9951D33346F00C3F52F /* XFRefreshTableViewController.m in Sources */,
 				EC1D25591D40C2B6002F8E19 /* XFErrorView.m in Sources */,
 				ECB9445B1D07BC3F00ED3229 /* XFPlugin.m in Sources */,
+				EC1D25611D40DDB7002F8E19 /* CTQPeopleCell.m in Sources */,
 				EC2FF98C1D33345D00C3F52F /* XFSearchHistoryTableViewCell.m in Sources */,
+				EC1D256C1D40EEA8002F8E19 /* CTQMemberView.m in Sources */,
+				ECC5BFE01D4CAFAB003D889F /* XFCardViewController.m in Sources */,
 				ECB944731D07BF0F00ED3229 /* XFViewController.m in Sources */,
 				ECB944701D07BE6B00ED3229 /* XFTableViewController.m in Sources */,
 				EC33E8BA1D1A70F200F74C7C /* XFRequest.m in Sources */,
@@ -402,15 +452,19 @@
 				ECB9445C1D07BC3F00ED3229 /* XFPluginManager.m in Sources */,
 				EC15C3A91D40AE360056730A /* XFLoadingView.m in Sources */,
 				EC2FF9871D33345D00C3F52F /* XFBannerScrollView.m in Sources */,
+				EC1D25691D40DE76002F8E19 /* CTQMember.m in Sources */,
 				EC33E8BB1D1A70F200F74C7C /* XFRequestQueue.m in Sources */,
 				EC15C3A31D40A5440056730A /* XFInfoView.m in Sources */,
 				ECB944421D07BBBC00ED3229 /* ViewController.m in Sources */,
 				ECB9443F1D07BBBC00ED3229 /* AppDelegate.m in Sources */,
 				EC2FF98B1D33345D00C3F52F /* XFLineView.m in Sources */,
 				EC2FF9881D33345D00C3F52F /* XFExcelView.m in Sources */,
+				EC1D255F1D40DDB7002F8E19 /* CTQMainMemberCell.m in Sources */,
+				EC1D25661D40DE04002F8E19 /* CTQPeopleView.m in Sources */,
 				ECB9443C1D07BBBC00ED3229 /* main.m in Sources */,
 				EC2FF98F1D33345D00C3F52F /* XFTopTabBar.m in Sources */,
 				EC2FF98A1D33345D00C3F52F /* XFLineHelper.m in Sources */,
+				ECC5BFE11D4CAFAB003D889F /* XFHSwipeViewController.m in Sources */,
 				EC2FF98E1D33345D00C3F52F /* XFTableViewCell.m in Sources */,
 				EC2FF9941D33346F00C3F52F /* XFNavigationController.m in Sources */,
 			);
