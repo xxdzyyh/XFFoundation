@@ -33,6 +33,12 @@
     [self setup];
 }
 
+- (void)setIndicatorLeft:(float)left {
+    CGRect rect = CGRectMake(left, self.indicatorView.frame.origin.y, self.indicatorView.bounds.size.width, self.indicatorHeight);
+    
+    [self.indicatorView setFrame:rect];
+}
+
 - (void)setup {
     if (self.delegate && [self.delegate respondsToSelector:@selector(titlesForTopTabbar:)]) {
         self.titles = [self.delegate titlesForTopTabbar:self];
@@ -91,6 +97,26 @@
     }
 }
 
+- (void)selectItemAtIndex:(NSUInteger)index {
+    _currentBtn.selected = NO;
+    _currentBtn.titleLabel.font = [UIFont systemFontOfSize:13];
+    
+    UIButton *btn = [self.itemsContainer viewWithTag:index];
+
+    btn.selected = YES;
+    btn.titleLabel.font = [UIFont systemFontOfSize:14];
+    
+    _currentBtn = btn;
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        float x = index * btn.bounds.size.width;
+        
+        CGRect rect = CGRectMake(x , self.indicatorView.frame.origin.y, self.indicatorView.bounds.size.width, self.indicatorHeight);
+        
+        [self.indicatorView setFrame:rect];
+    }];
+}
+
 #pragma mark - setter & getter
 
 - (UIScrollView *)itemsContainer {
@@ -99,6 +125,8 @@
         
         _itemsContainer = [[UIScrollView alloc] initWithFrame:rect];
         
+        // 设置为10000,避免viewWithTag找到自己
+        _itemsContainer.tag = 10000;
         _itemsContainer.showsVerticalScrollIndicator = NO;
         _itemsContainer.showsHorizontalScrollIndicator = NO;
     }

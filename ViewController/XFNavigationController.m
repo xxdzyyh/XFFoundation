@@ -19,7 +19,7 @@
 }
 
 + (UIColor *)barBackColor {
-    return [UIColor colorWithRed:0.216 green:0.259 blue:0.337 alpha:1.00];
+    return [UIColor colorWithRed:0.000 green:0.667 blue:0.941 alpha:1.00];
 }
 
 
@@ -85,6 +85,7 @@
         
         [btnLeft setImageEdgeInsets:UIEdgeInsetsMake(0, -14.5, 0, +14.5)];
         [btnLeft setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+        [btnLeft setImage:[UIImage imageNamed:@"back"] forState:UIControlStateHighlighted];
 
         UIBarButtonItem* picActionBtn =  [[UIBarButtonItem alloc] initWithCustomView:btnLeft];
         

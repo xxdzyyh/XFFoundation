@@ -10,8 +10,9 @@
 #import "XFTopTabBar.h"
 #import "XFCardViewController.h"
 #import "UIView+YYAdd.h"
+#import "View+MASShorthandAdditions.h"
 
-@interface XFHSwipeViewController () <XFTopTabBarDelegate,XFCardViewControllerDelegate>
+@interface XFHSwipeViewController () <XFCardViewControllerDelegate>
 
 @property (strong, nonatomic) NSArray *topbarTitles;
 
@@ -31,14 +32,20 @@
     [self.view addSubview:self.topbar];
     [self.view addSubview:self.cardVC.view];
     
-    self.edgesForExtendedLayout = UIRectEdgeNone;
-}
-
-- (void)viewWillLayoutSubviews {
-    [super viewWillLayoutSubviews];
+    [self.topbar mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(0);
+        make.left.mas_equalTo(0);
+        make.right.mas_equalTo(self.view.mas_right);
+        make.height.mas_equalTo(self.topBarHeight);
+    }];
     
-    self.topbar.size = CGSizeMake(self.view.width, self.topBarHeight);
-    self.cardVC.view.frame = CGRectMake(0, self.topBarHeight, self.view.width, self.view.height - self.topBarHeight);
+    [self.cardVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.topbar.mas_bottom);
+        make.left.right.and.bottom.equalTo(self.view);
+        
+    }];
+    
+    self.edgesForExtendedLayout = UIRectEdgeBottom;
 }
 
 #pragma mark - XFTopTabBarDelegate
@@ -50,7 +57,6 @@
 - (void)topTabbar:(XFTopTabBar *)topTabBar didSelectedItemAtIndex:(NSInteger)index {
     
     [self.cardVC selectedViewControllerAtIndex:index];
-    
 }
 
 #pragma mark - JXCardViewControllerDelegate
@@ -59,27 +65,30 @@
     return self.contentViewControllers;
 }
 
+- (void)didSelectedViewControllerAtIndex:(NSUInteger)index {
+    
+    [self.topbar selectItemAtIndex:index];
+}
+
 #pragma mark - setter & getter 
 
 - (XFTopTabBar *)topbar {
     if (_topbar == nil) {
-
         float w = [UIScreen mainScreen].bounds.size.width;
         
         _topbar = [[XFTopTabBar alloc] initWithFrame:CGRectMake(0, 0, w, 45)];
-        
-        _topbar.delegate = self;
     }
     return _topbar;
 }
 
 - (XFCardViewController *)cardVC {
     if (_cardVC == nil) {
-        _cardVC = [[XFCardViewController alloc] init];
-
-        _cardVC.delegate = self;
+        CGRect rect = CGRectMake(0, self.topBarHeight, self.view.width, self.view.height - self.topBarHeight);
+        
+        _cardVC = [[XFCardViewController alloc] initWithFrame:rect delegate:self];
+        
+        [self addChildViewController:_cardVC];
     }
-    
     return _cardVC;
 }
 

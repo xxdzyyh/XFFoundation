@@ -20,5 +20,6 @@
 #import "XFPlugin.h"
 #import "XFPluginManager.h"
 #import "XFHSwipeViewController.h"
+#import "XFRefreshTableViewController.h"
 
 #endif /* XFFoundation_h */

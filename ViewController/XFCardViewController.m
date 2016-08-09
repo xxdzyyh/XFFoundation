@@ -6,7 +6,8 @@
 
 #import "XFCardViewController.h"
 #import "UIView+YYAdd.h"
-
+#import "Masonry.h"
+#import "ReactiveCocoa.h"
 #define SWidth [[UIScreen mainScreen] bounds].size.width
 
 #define SHeight [[UIScreen mainScreen] bounds].size.height
@@ -42,42 +43,63 @@ typedef enum
 
 @implementation XFCardViewController
 
+#pragma mark - life cycle
+
+- (instancetype)initWithFrame:(CGRect)frame delegate:(id<XFCardViewControllerDelegate>)delegate {
+    self = [super init];
+    if (self) {
+        _delegate = delegate;
+        
+        self.view.frame = frame;
+        
+        self.automaticallyAdjustsScrollViewInsets = NO;
+        
+        self.scrollView.autoresizesSubviews = NO;
+        
+        [self prepareLeftViews];
+        
+        self.scrollView.contentOffset = CGPointZero;
+        
+        [self.view layoutIfNeeded];
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
+
     [self.view addSubview:self.scrollView];
     
-    [self prepareLeftViews];
+    [self.scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
 }
 
 
+#pragma mark - event response
+
 - (void)selectedViewControllerAtIndex:(NSInteger)index {
-    
     if (index == _index) {
         return;
     }
 
     if (index - _index == 1) {
-        
         CGPoint p1= _scrollView.contentOffset;
         
         [UIView animateWithDuration:0.30f animations:^{
             
-            _scrollView.contentOffset=CGPointMake(p1.x+320, p1.y);
+            _scrollView.contentOffset=CGPointMake(p1.x+self.view.width, p1.y);
+        } completion:^(BOOL finished) {
             
-         } completion:^(BOOL finished) {
-            
-             [self creatView];
-         }];
-        
+            [self creatView];
+        }];
     } else if (index - _index == -1) {
         
         CGPoint p1= _scrollView.contentOffset;
         
         [UIView animateWithDuration:0.30f animations:^{
             
-            _scrollView.contentOffset=CGPointMake(p1.x - 320, p1.y);
+            _scrollView.contentOffset=CGPointMake(p1.x-self.view.width, p1.y);
             
          } completion:^(BOOL finished) {
             
@@ -100,7 +122,7 @@ typedef enum
         
         [UIView animateWithDuration:0.30f animations:^{
             
-            _scrollView.contentOffset=CGPointMake(p1.x+320, p1.y);
+            _scrollView.contentOffset=CGPointMake(p1.x+self.view.width,p1.y);
             
          } completion:^(BOOL finished) {
             
@@ -121,20 +143,18 @@ typedef enum
         CGPoint p1= _scrollView.contentOffset;
         
         // 动画不会触发scrollViewDidEndDecelerating
-        
-        [UIView animateWithDuration:0.30f animations:
-         ^{
-             _scrollView.contentOffset=CGPointMake(p1.x-320, p1.y);
-         } completion:^(BOOL finished)
-         {
-             if (_index == 0) {
+        [UIView animateWithDuration:0.30f animations:^{
+            _scrollView.contentOffset=CGPointMake(p1.x-self.view.width, p1.y);
+         
+        } completion:^(BOOL finished) {
+            if (_index == 0) {
                  
-                 [self prepareLeftViews];
-             } else {
+                [self prepareLeftViews];
+            } else {
                  
-                 [self prepareMidViews];
-             }
-         }];
+                [self prepareMidViews];
+            }
+        }];
     }
 }
 
@@ -156,8 +176,6 @@ typedef enum
     
     //pageIndex 为 0、1、2
     int pageIndex = floor((_scrollView.contentOffset.x - pageWidth/2)/pageWidth) + 1;
-    
-    NSLog(@"pageIndex : %d",pageIndex);
     
     switch (_currentType) {
         case PositionTypeLeft:
@@ -204,6 +222,14 @@ typedef enum
     }
     
     _scrollView.userInteractionEnabled = YES;
+    
+    [self notifyIndexChanged];
+}
+
+- (void)notifyIndexChanged {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(didSelectedViewControllerAtIndex:)]) {
+        [self.delegate didSelectedViewControllerAtIndex:_index];
+    }
 }
 
 - (void)prepareLeftViews {
@@ -213,9 +239,13 @@ typedef enum
         [view removeFromSuperview];
     }
     
+    if (self.dataSource.count < 2) {
+        return;
+    }
+    
     self.viewLeft = self.dataSource[_index];
     self.viewMid  = self.dataSource[_index + 1];
-    
+   
     self.viewLeft.frame = CGRectMake(0, 0, self.view.width, self.view.height);
     self.viewMid.frame  = CGRectMake(self.view.width, 0, self.view.width, self.view.height);
     
@@ -223,7 +253,8 @@ typedef enum
     [_scrollView addSubview:self.viewMid];
     
     _scrollView.contentSize = CGSizeMake(self.view.width *2, self.view.height);
-    [_scrollView scrollRectToVisible:CGRectMake(0, 0, self.view.width, self.view.height) animated:NO];
+    [_scrollView scrollRectToVisible:CGRectMake(0, 0, self.view.width, self.view.height)
+                            animated:NO];
     
     _currentType = PositionTypeLeft;
 }
@@ -232,6 +263,10 @@ typedef enum
     for (UIView * view in self.scrollView.subviews) {
         
         [view removeFromSuperview];
+    }
+    
+    if (self.dataSource.count<3) {
+        return;
     }
     
     self.viewLeft  = self.dataSource[_index - 1];
@@ -291,7 +326,6 @@ typedef enum
 }
 
 - (void)replaceViewMidWithView:(UIView *)view {
-    
     if (self.viewMid.superview) {
         
         CGRect frame = self.viewMid.frame;
@@ -299,7 +333,6 @@ typedef enum
         view.frame = frame;
         
         [self.viewMid removeFromSuperview];
-        
         [self.scrollView addSubview:view];
         
         self.viewMid = view;
@@ -307,15 +340,13 @@ typedef enum
 }
 
 - (void)replaceViewRightWithView:(UIView *)view {
-    
     if (self.viewRight.superview) {
         
         CGRect frame = self.viewRight.frame;
-        
+
         view.frame = frame;
         
         [self.viewRight removeFromSuperview];
-        
         [self.scrollView addSubview:view];
         
         self.viewRight = view;
@@ -326,30 +357,33 @@ typedef enum
 - (UIScrollView *)scrollView {
     
     if (_scrollView == nil) {
-        _scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectZero];
         _scrollView.delegate = self;
         _scrollView.showsHorizontalScrollIndicator = NO;
+        _scrollView.showsVerticalScrollIndicator = NO;
         _scrollView.pagingEnabled = YES;
         _scrollView.bounces=NO;
-        _scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+        _scrollView.directionalLockEnabled = YES;
     }
     
     return _scrollView;
 }
 
 - (NSMutableArray *)dataSource {
-
-    if (self.delegate) {
-        
-        NSArray * array = [self.delegate viewControllersForCardViewController];
-    
-        _dataSource = [NSMutableArray array];
-        
-        for (UIViewController * vc in array) {
+    if (_dataSource == nil) {
+        if (self.delegate) {
+            NSArray * array = [self.delegate viewControllersForCardViewController];
             
-            [self addChildViewController:vc];
+            _dataSource = [NSMutableArray array];
             
-            [_dataSource addObject:vc.view];
+            for (UIViewController * vc in array) {
+                
+                vc.automaticallyAdjustsScrollViewInsets = NO;
+                
+                [self addChildViewController:vc];
+                
+                [_dataSource addObject:vc.view];
+            }
         }
     }
     return _dataSource;

@@ -29,4 +29,8 @@
 @property (strong, nonatomic) UIColor *titleNormalColor;
 @property (strong, nonatomic) UIColor *titleSelectColor;
 
+- (void)selectItemAtIndex:(NSUInteger)index;
+
+- (void)setIndicatorLeft:(float)left;
+
 @end

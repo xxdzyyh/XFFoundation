@@ -8,13 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+@class XFCardViewController;
+
 @protocol XFCardViewControllerDelegate <NSObject>
 
 - (NSArray *)viewControllersForCardViewController;
 
+- (void)didSelectedViewControllerAtIndex:(NSUInteger)index;
+
 @end
 
 @interface XFCardViewController : UIViewController
+
+- (instancetype)initWithFrame:(CGRect)frame delegate:(id<XFCardViewControllerDelegate>)delegate;
 
 @property (weak, nonatomic) id<XFCardViewControllerDelegate> delegate;
 

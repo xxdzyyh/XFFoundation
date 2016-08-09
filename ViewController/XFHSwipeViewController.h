@@ -8,19 +8,35 @@
 
 #import <UIKit/UIKit.h>
 #import "XFTopTabBar.h"
+#import "XFViewController.h"
 
 @class XFHSwipeViewController;
 
 @protocol XFHSwipeViewControllerDataSource <NSObject>
 
+/**
+ *  需要切换的viewController
+ *
+ *  @param swipe 需要在哪个swipe view controller上显示
+ *
+ *  @return <#return value description#>
+ */
 - (NSArray *)viewControllersInSwipeView:(XFHSwipeViewController *)swipe;
 
+/**
+ *  topbar需要显示的title
+ *
+ *  @param swipe topbar所属的swipeViewController
+ *
+ *  @return <#return value description#>
+ */
 - (NSArray *)titlesInSwipeView:(XFHSwipeViewController *)swipe;
 
 @end
 
 @protocol XFHSwipeViewControllerDelegate <NSObject>
 
+@optional 
 /*! 默认为45 */
 - (float)heightForTopbarInSwipeView:(XFHSwipeViewController *)swipe;
 
@@ -29,7 +45,7 @@
 
 @end
 
-@interface XFHSwipeViewController : UIViewController
+@interface XFHSwipeViewController : XFViewController<XFTopTabBarDelegate>
 
 @property (strong, nonatomic) XFTopTabBar *topbar;
 

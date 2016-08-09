@@ -8,6 +8,7 @@
 
 #import "XFTableViewController.h"
 #import "YYKit.h"
+#import "XFLineHelper.h"
 
 @interface XFTableViewController () {
     UITableView *_tableView;
@@ -35,6 +36,8 @@
     cell.backgroundColor = [UIColor colorWithRed:0.949 green:0.949 blue:0.949 alpha:1.00];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
+    [XFLineHelper addBottomLineToView:cell.contentView];
+    
     return cell;
 }
 
@@ -48,7 +51,7 @@
         
         [self.emptyView removeFromSuperview];
     }
-
+    
     [self.tableView addSubview:self.emptyView];
 }
 
@@ -70,6 +73,7 @@
             _tableView.showsVerticalScrollIndicator = NO;
             _tableView.showsHorizontalScrollIndicator = NO;
             _tableView.tableFooterView = [UIView new];
+            _tableView.directionalLockEnabled = YES;
             
             [self.view addSubview:_tableView];
         }
@@ -80,6 +84,7 @@
     if (_emptyView == nil) {
         _emptyView = [[XFEmptyView alloc] initWithTitle:self.emptyTitle
                                                   image:self.emptyImageName];
+        _emptyView.backgroundColor = [UIColor clearColor];
     }
     return _emptyView;
 }
