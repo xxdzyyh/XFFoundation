@@ -7,7 +7,7 @@
 #import "XFCardViewController.h"
 #import "UIView+YYAdd.h"
 #import "Masonry.h"
-#import "ReactiveCocoa.h"
+
 #define SWidth [[UIScreen mainScreen] bounds].size.width
 
 #define SHeight [[UIScreen mainScreen] bounds].size.height
