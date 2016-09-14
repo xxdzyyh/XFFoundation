@@ -33,6 +33,8 @@
 
 + (void)add15LeftBottomLineToView:(UIView *)view;
 
++ (void)add15BottomLineToView:(UIView *)view;
+
 /*!  * @brief 添加底部线条
  * @param left 左边距
  * @param right 右边距

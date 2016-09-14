@@ -132,6 +132,15 @@
             return;
         }
     }
+    
+    if ([value isKindOfClass:[NSNumber class]]) {
+        NSNumber *va = (NSNumber *)value;
+        
+        if (va.integerValue < 0) {
+            return;
+        }
+    }
+    
     [self.paramters setObject:value forKey:name];
 }
 

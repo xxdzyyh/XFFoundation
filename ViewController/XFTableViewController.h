@@ -31,4 +31,6 @@
 
 - (void)refreshTableView;
 
+- (UITableViewCell *)emptyCellWithImageName:(NSString *)imageName title:(NSString *)title;
+
 @end

@@ -53,8 +53,8 @@
         
         btn.tag = i;
         btn.frame = CGRectMake(w*i, 0, w, self.itemsContainer.bounds.size.height);
-        btn.titleLabel.font = [UIFont systemFontOfSize:13];
-        
+        btn.titleLabel.font = self.titleFont;
+
         [btn setTitleColor:self.titleNormalColor forState:UIControlStateNormal];
         [btn setTitleColor:self.titleSelectColor forState:UIControlStateSelected];
         [btn setTitle:title forState:UIControlStateNormal];
@@ -65,7 +65,7 @@
         if (i == 0) {
             _currentBtn = btn;
             _currentBtn.selected = YES;
-            _currentBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+            _currentBtn.titleLabel.font = self.titleSelectFont;
         }
     }
     
@@ -77,10 +77,11 @@
     NSInteger index = sender.tag;
     
     _currentBtn.selected = NO;
-    _currentBtn.titleLabel.font = [UIFont systemFontOfSize:13];
+    
+    _currentBtn.titleLabel.font = self.titleFont;
     
     sender.selected = YES;
-    sender.titleLabel.font = [UIFont systemFontOfSize:14];
+    sender.titleLabel.font = self.titleSelectFont;
     
     _currentBtn = sender;
     
@@ -99,12 +100,12 @@
 
 - (void)selectItemAtIndex:(NSUInteger)index {
     _currentBtn.selected = NO;
-    _currentBtn.titleLabel.font = [UIFont systemFontOfSize:13];
+    _currentBtn.titleLabel.font = self.titleFont;
     
     UIButton *btn = [self.itemsContainer viewWithTag:index];
 
     btn.selected = YES;
-    btn.titleLabel.font = [UIFont systemFontOfSize:14];
+    btn.titleLabel.font = self.titleSelectFont;
     
     _currentBtn = btn;
     
@@ -174,6 +175,20 @@
         _indicatorColor = [UIColor blackColor];
     }
     return _indicatorColor;
+}
+
+- (UIFont *)titleFont {
+    if (_titleFont == nil) {
+        _titleFont = [UIFont systemFontOfSize:13];
+    }
+    return _titleFont;
+}
+
+- (UIFont *)titleSelectFont {
+    if (_titleSelectFont == nil) {
+        _titleSelectFont = [UIFont systemFontOfSize:14];
+    }
+    return _titleSelectFont;
 }
 
 @end

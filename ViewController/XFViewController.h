@@ -58,4 +58,8 @@ typedef NS_ENUM(NSUInteger,XFDataType) {
 
 - (void)sendDefaultRequest;
 
+#pragma mark - helper
+
++ (CGSize)sizeWithString:(NSString *)string font:(UIFont *)font;
+
 @end

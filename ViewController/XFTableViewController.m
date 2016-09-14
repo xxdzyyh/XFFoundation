@@ -9,6 +9,8 @@
 #import "XFTableViewController.h"
 #import "YYKit.h"
 #import "XFLineHelper.h"
+#import "XFInfoView.h"
+#import "Masonry.h"
 
 @interface XFTableViewController () {
     UITableView *_tableView;
@@ -125,6 +127,20 @@
             [self hiddenEmptyView];
         }
     }
+}
+
+- (UITableViewCell *)emptyCellWithImageName:(NSString *)imageName title:(NSString *)title {
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"XFEmptyCell"];
+    
+    XFInfoView *info = [[XFInfoView alloc] initWithInfo:title imageName:imageName];
+    
+    [info showAtView:cell.contentView];
+    
+    [info mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(cell.contentView);
+    }];
+    
+    return cell;
 }
 
 @end

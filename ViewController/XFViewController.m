@@ -148,7 +148,7 @@
     hud.mode = MBProgressHUDModeText;
     hud.labelText = status;
     hud.margin = 10.f;
-    hud.yOffset = h/2 - 100;
+//    hud.yOffset = h/2 - 100;
     hud.removeFromSuperViewOnHide = YES;
     
     [hud hide:YES afterDelay:1.5];
@@ -278,5 +278,14 @@
     return image;
 }
 
+#pragma mark - helper
+
++ (CGSize)sizeWithString:(NSString *)string font:(UIFont *)font {
+    CGSize size = [string boundingRectWithSize:CGSizeZero
+                                       options:NSStringDrawingUsesLineFragmentOrigin
+                                    attributes:@{NSFontAttributeName:font}
+                                       context:nil].size;
+    return size;
+}
 
 @end

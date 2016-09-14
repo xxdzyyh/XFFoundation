@@ -28,6 +28,9 @@
 
 @property (strong, nonatomic) UIColor *titleNormalColor;
 @property (strong, nonatomic) UIColor *titleSelectColor;
+@property (strong, nonatomic) UIFont  *titleFont;
+@property (strong, nonatomic) UIFont  *titleSelectFont;
+
 
 - (void)selectItemAtIndex:(NSUInteger)index;
 

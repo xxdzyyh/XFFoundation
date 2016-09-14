@@ -75,6 +75,11 @@ typedef enum
     }];
 }
 
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    
+    self.viewLeft.height = self.view.height;
+}
 
 #pragma mark - event response
 
@@ -273,7 +278,7 @@ typedef enum
     self.viewMid   = self.dataSource[_index];
     self.viewRight = self.dataSource[_index + 1];
     
-    self.viewLeft.frame = CGRectMake(0, 0, self.view.width, self.view.height);
+    self.viewLeft.frame = CGRectMake(0, 0, _scrollView.width, _scrollView.height);
     self.viewMid.frame = CGRectMake(self.view.width, 0, self.view.width, self.view.height);
     self.viewRight.frame = CGRectMake(self.view.width * 2, 0, self.view.width, self.view.height);
     

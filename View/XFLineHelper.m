@@ -52,6 +52,22 @@
     [view addSubview:v];
 }
 
++ (void)add15BottomLineToView:(UIView *)view {
+    [self delBottomLine:view];
+    
+    XFLineView *v =
+    [[XFLineView alloc] initWithFrame:CGRectMake(0, view.frame.size.height - XFLineHeight,
+                                                 view.frame.size.width, XFLineHeight)];
+    v.lineWidth = @(XFLineHeight);
+    v.lineColor = kXFSeperatorColor;
+    v.tag = 12345;
+    v.margin1 = @(15);
+    v.margin2 = @(15);
+    v.isBottomLine = YES;
+    v.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+    [view addSubview:v];
+}
+
 //移除底部细线
 + (void)removeBottomLineToView:(UIView *)view {
     [self delBottomLine:view];
