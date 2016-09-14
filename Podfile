@@ -10,7 +10,7 @@ target 'XFFoundation' do
    pod 'AFNetworking'
    pod 'MBProgressHUD'
    pod 'MJRefresh'
-   
+   pod 'Masonry'
    # 友盟统计
     pod 'UMengAnalytics-NO-IDFA'
 end

@@ -12,6 +12,7 @@
 #import "XFEmptyView.h"
 #import "XFErrorView.h"
 #import "XFLoadingView.h"
+#import "UMMobClick/MobClick.h"
 
 @interface XFViewController () <XFErrorViewDelegate>
 
@@ -47,10 +48,34 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestFailedNeedLogin) name:@"kReuqestNeedLogin" object:nil];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    NSString *string = self.title;
+    
+    if (self.title.length == 0) {
+        string = self.navigationItem.title;
+    }
+    
+    if (string.length > 0) {
+        [MobClick beginLogPageView:string];
+    }
+}
+
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
 
     [self closeLoadingView];
+    
+    NSString *string = self.title;
+    
+    if (self.title.length == 0) {
+        string = self.navigationItem.title;
+    }
+    
+    if (string.length > 0) {
+        [MobClick endLogPageView:string];
+    }
 }
 
 - (void)dealloc {
