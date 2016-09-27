@@ -32,6 +32,8 @@
     [self.view addSubview:self.topbar];
     [self.view addSubview:self.cardVC.view];
     
+    self.topbar.backgroundColor = [UIColor whiteColor];
+    
     [self.topbar mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(0);
         make.left.mas_equalTo(0);

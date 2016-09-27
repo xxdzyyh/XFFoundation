@@ -52,6 +52,39 @@
     return cell;
 }
 
++ (id)cellForTableView:(UITableView *)tableView identify:(NSString *)identify {
+    NSString *className = NSStringFromClass(self);
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:className];
+    
+    if (cell == nil) {
+        NSBundle *classBundle = [NSBundle bundleForClass:self];
+        // 虽然nib名字可以与cell类名不同，但是貌似没有理由不同
+        NSString * path = [classBundle pathForResource:className ofType:@"nib"];
+        
+        if (path.length > 0) {
+            UINib *nib = [UINib nibWithNibName:className bundle:classBundle];
+            
+            //注册以后，dequeueReusableCellWithIdentifier返回必定不为空，只会执行一次
+            [tableView registerNib:nib forCellReuseIdentifier:identify];
+            
+            NSArray *nibObjects = [nib instantiateWithOwner:nil options:nil];
+            
+            NSAssert2(([nibObjects count] > 0) &&
+                      [[nibObjects firstObject] isKindOfClass:self], @"Nib '%@' does not appert a valid %@", NSStringFromClass(self), NSStringFromClass(self));
+            
+            cell = [nibObjects firstObject];
+            cell = [tableView dequeueReusableCellWithIdentifier:identify];
+        } else {
+            NSAssert1(0, @"Nib with name : %@ not found",NSStringFromClass(self));
+            
+            return nil;
+        }
+    }
+    
+    return cell;
+}
+
 - (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size {
     CGRect rect = CGRectMake(0.0f, 0.0f, size.width, size.height);
 

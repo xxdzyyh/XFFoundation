@@ -32,14 +32,6 @@
 
 @implementation XFBannerScrollView
 
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        [self setUp];
-    }
-    return self;
-}
-
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {

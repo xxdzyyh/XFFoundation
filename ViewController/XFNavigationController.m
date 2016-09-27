@@ -14,38 +14,35 @@
 
 @implementation XFNavigationController
 
-+ (UIColor *)titleColor {
-    return [UIColor whiteColor];
+- (UIColor *)titleColor {
+    if (_titleColor == nil) {
+        _titleColor = [UIColor whiteColor];
+    }
+    return _titleColor;
 }
 
-+ (UIColor *)barBackColor {
-    return [UIColor colorWithRed:0.000 green:0.667 blue:0.941 alpha:1.00];
+- (UIColor *)barBackColor {
+    if (_barBackColor == nil) {
+        _barBackColor = [UIColor colorWithRed:0.000 green:0.667 blue:0.941 alpha:1.00];
+    }
+    return _barBackColor;
 }
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.navigationBar.titleTextAttributes = @{NSFontAttributeName:[UIFont systemFontOfSize:18],
-                                               NSForegroundColorAttributeName:[[self class] titleColor]};
+                                               NSForegroundColorAttributeName:self.titleColor};
 
-    self.navigationBar.barTintColor = [[self class] barBackColor];
+    self.navigationBar.barTintColor = self.barBackColor;
     self.navigationBar.translucent = NO;
+    self.navigationBar.barStyle = UIBarStyleBlack;
     
     UIImage *image = [UIImage new];
     
     [self.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
     [self.navigationBar setShadowImage:image];
     
-    
-//    self.navigationBar.barTintColor = [UIColor clearColor];
-//    self.navigationBar.translucent = YES;
-//    
-//    UIImage *image = [XFNavigationController createImageWithColor:[UIColor clearColor]];
-//    
-//    [self.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
-//    [self.navigationBar setShadowImage:image];
-//    
     self.delegate = self;
 }
 
@@ -71,6 +68,7 @@
         
         btnLeft.exclusiveTouch = YES;
         btnLeft.frame = CGRectMake(0, 0, 40, 30);
+        btnLeft.tintColor = self.titleColor;
         
         if ([viewController respondsToSelector:@selector(onCustomBackItemClicked:)]) {
             [btnLeft addTarget:viewController
@@ -83,9 +81,11 @@
               forControlEvents:UIControlEventTouchUpInside];
         }
         
+        UIImage *image = [[UIImage imageNamed:@"back"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        
         [btnLeft setImageEdgeInsets:UIEdgeInsetsMake(0, -14.5, 0, +14.5)];
-        [btnLeft setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
-        [btnLeft setImage:[UIImage imageNamed:@"back"] forState:UIControlStateHighlighted];
+        [btnLeft setImage:image forState:UIControlStateNormal];
+        [btnLeft setImage:image forState:UIControlStateHighlighted];
 
         UIBarButtonItem* picActionBtn =  [[UIBarButtonItem alloc] initWithCustomView:btnLeft];
         

@@ -105,37 +105,37 @@
     return YES;
 }
 
-#pragma mark - 推送相关
-
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    
-    for (XFPlugin *obj in [self plugins]) {
-        if ([obj respondsToSelector:@selector(application:didReceiveRemoteNotification:)]) {
-            
-            [obj application:application didReceiveRemoteNotification:userInfo];
-        }
-    }
-}
-
-- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    
-    for (XFPlugin *obj in [self plugins]) {
-        if ([obj respondsToSelector:@selector(application:didRegisterForRemoteNotificationsWithDeviceToken:)]) {
-            
-            [obj application:application didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
-        }
-    }
-}
-
-- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
-    
-    for (XFPlugin *obj in [self plugins]) {
-        if ([obj respondsToSelector:@selector(application:didReceiveLocalNotification:)]) {
-            
-            [obj application:application didReceiveLocalNotification:notification];
-        }
-    }
-}
+//#pragma mark - 推送相关
+//
+//- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+//    
+//    for (XFPlugin *obj in [self plugins]) {
+//        if ([obj respondsToSelector:@selector(application:didReceiveRemoteNotification:)]) {
+//            
+//            [obj application:application didReceiveRemoteNotification:userInfo];
+//        }
+//    }
+//}
+//
+//- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+//    
+//    for (XFPlugin *obj in [self plugins]) {
+//        if ([obj respondsToSelector:@selector(application:didRegisterForRemoteNotificationsWithDeviceToken:)]) {
+//            
+//            [obj application:application didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
+//        }
+//    }
+//}
+//
+//- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+//    
+//    for (XFPlugin *obj in [self plugins]) {
+//        if ([obj respondsToSelector:@selector(application:didReceiveLocalNotification:)]) {
+//            
+//            [obj application:application didReceiveLocalNotification:notification];
+//        }
+//    }
+//}
 
 
 @end

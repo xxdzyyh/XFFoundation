@@ -33,6 +33,9 @@
 		EC2FF9981D33378A00C3F52F /* XFEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2FF9971D33378A00C3F52F /* XFEmptyView.m */; };
 		EC33E8BA1D1A70F200F74C7C /* XFRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = EC33E8B71D1A70F200F74C7C /* XFRequest.m */; };
 		EC33E8BB1D1A70F200F74C7C /* XFRequestQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = EC33E8B91D1A70F200F74C7C /* XFRequestQueue.m */; };
+		ECB850DC1D9A09D10006BE63 /* ADBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECB850DB1D9A09D10006BE63 /* ADBannerView.m */; };
+		ECB850DF1D9A09DC0006BE63 /* XFLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECB850DE1D9A09DC0006BE63 /* XFLabel.m */; };
+		ECB850E21D9A0AE00006BE63 /* XFButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ECB850E11D9A0AE00006BE63 /* XFButton.m */; };
 		ECB9443C1D07BBBC00ED3229 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ECB9443B1D07BBBC00ED3229 /* main.m */; };
 		ECB9443F1D07BBBC00ED3229 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECB9443E1D07BBBC00ED3229 /* AppDelegate.m */; };
 		ECB944421D07BBBC00ED3229 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECB944411D07BBBC00ED3229 /* ViewController.m */; };
@@ -100,6 +103,12 @@
 		EC33E8B81D1A70F200F74C7C /* XFRequestQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFRequestQueue.h; sourceTree = "<group>"; };
 		EC33E8B91D1A70F200F74C7C /* XFRequestQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFRequestQueue.m; sourceTree = "<group>"; };
 		EC52FE8B1D10FCD2003CA45C /* XFFoundation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XFFoundation.h; sourceTree = "<group>"; };
+		ECB850DA1D9A09D10006BE63 /* ADBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADBannerView.h; sourceTree = "<group>"; };
+		ECB850DB1D9A09D10006BE63 /* ADBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADBannerView.m; sourceTree = "<group>"; };
+		ECB850DD1D9A09DC0006BE63 /* XFLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFLabel.h; sourceTree = "<group>"; };
+		ECB850DE1D9A09DC0006BE63 /* XFLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFLabel.m; sourceTree = "<group>"; };
+		ECB850E01D9A0AE00006BE63 /* XFButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFButton.h; sourceTree = "<group>"; };
+		ECB850E11D9A0AE00006BE63 /* XFButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFButton.m; sourceTree = "<group>"; };
 		ECB944371D07BBBC00ED3229 /* XFFoundation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XFFoundation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECB9443B1D07BBBC00ED3229 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		ECB9443D1D07BBBC00ED3229 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -262,6 +271,12 @@
 		ECB9445D1D07BDA800ED3229 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				ECB850E01D9A0AE00006BE63 /* XFButton.h */,
+				ECB850E11D9A0AE00006BE63 /* XFButton.m */,
+				ECB850DD1D9A09DC0006BE63 /* XFLabel.h */,
+				ECB850DE1D9A09DC0006BE63 /* XFLabel.m */,
+				ECB850DA1D9A09D10006BE63 /* ADBannerView.h */,
+				ECB850DB1D9A09D10006BE63 /* ADBannerView.m */,
 				EC15C3A11D40A5440056730A /* XFInfoView.h */,
 				EC15C3A21D40A5440056730A /* XFInfoView.m */,
 				EC2FF9761D33345D00C3F52F /* XFBannerScrollView.h */,
@@ -437,6 +452,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC2FF9981D33378A00C3F52F /* XFEmptyView.m in Sources */,
+				ECB850E21D9A0AE00006BE63 /* XFButton.m in Sources */,
+				ECB850DF1D9A09DC0006BE63 /* XFLabel.m in Sources */,
 				EC2FF9891D33345D00C3F52F /* XFExcelViewTitleCell.m in Sources */,
 				EC2FF9951D33346F00C3F52F /* XFRefreshTableViewController.m in Sources */,
 				EC1D25591D40C2B6002F8E19 /* XFErrorView.m in Sources */,
@@ -467,6 +484,7 @@
 				ECC5BFE11D4CAFAB003D889F /* XFHSwipeViewController.m in Sources */,
 				EC2FF98E1D33345D00C3F52F /* XFTableViewCell.m in Sources */,
 				EC2FF9941D33346F00C3F52F /* XFNavigationController.m in Sources */,
+				ECB850DC1D9A09D10006BE63 /* ADBannerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

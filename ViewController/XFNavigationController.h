@@ -19,8 +19,10 @@
  */
 //- (void)onCustomBackItemClicked:(id)sender;
 
-+ (UIColor *)titleColor;
 
-+ (UIColor *)barBackColor;
+@property (strong, nonatomic) UIColor *titleColor;
+@property (strong, nonatomic) UIColor *barBackColor;
+
++ (UIImage*)createImageWithColor:(UIColor*) color;
 
 @end

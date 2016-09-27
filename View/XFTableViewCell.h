@@ -26,6 +26,8 @@
 
 + (id)cellForTableView:(UITableView *)tableView;
 
++ (id)cellForTableView:(UITableView *)tableView identify:(NSString *)identify;
+
 - (void)configCellWithData:(id)item;
 
 - (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size;

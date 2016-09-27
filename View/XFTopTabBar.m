@@ -7,6 +7,7 @@
 //
 
 #import "XFTopTabBar.h"
+#import <POP.h>
 
 @interface XFTopTabBar ()
 
@@ -33,10 +34,10 @@
     [self setup];
 }
 
-- (void)setIndicatorLeft:(float)left {
-    CGRect rect = CGRectMake(left, self.indicatorView.frame.origin.y, self.indicatorView.bounds.size.width, self.indicatorHeight);
+- (void)setIndicatorCenterX:(float)x {
+    float y = self.indicatorView.center.y;
     
-    [self.indicatorView setFrame:rect];
+    self.indicatorView.center = CGPointMake(x, y);
 }
 
 - (void)setup {
@@ -77,7 +78,6 @@
     NSInteger index = sender.tag;
     
     _currentBtn.selected = NO;
-    
     _currentBtn.titleLabel.font = self.titleFont;
     
     sender.selected = YES;
@@ -85,13 +85,22 @@
     
     _currentBtn = sender;
     
-    [UIView animateWithDuration:0.2 animations:^{
-        float x = index * sender.bounds.size.width;
+    float x = index * sender.bounds.size.width+sender.bounds.size.width/2;
+    float y = self.indicatorView.center.y;
+    
+    //    使用下面的方法动画的起点位置对，也不知道是什么鬼，所以，改用pop
+    //    [UIView animateWithDuration:0.2 animations:^{
+    //        
+    //        self.indicatorView.center = CGPointMake(x, y);
+    //    }];
         
-        CGRect rect = CGRectMake(x , self.indicatorView.frame.origin.y, self.indicatorView.bounds.size.width, self.indicatorHeight);
-        
-        [self.indicatorView setFrame:rect];
-    }];
+    POPBasicAnimation *anim = [POPBasicAnimation animationWithPropertyNamed:kPOPViewCenter];
+    
+    anim.toValue = [NSValue valueWithCGPoint:CGPointMake(x, y)];
+    anim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    anim.duration = 0.2;
+    
+    [self.indicatorView pop_addAnimation:anim forKey:@"centerAnimation"];
     
     if (self.delegate && [self.delegate respondsToSelector:@selector(topTabbar:didSelectedItemAtIndex:)]) {
         [self.delegate topTabbar:self didSelectedItemAtIndex:sender.tag];
@@ -109,13 +118,20 @@
     
     _currentBtn = btn;
     
-    [UIView animateWithDuration:0.2 animations:^{
-        float x = index * btn.bounds.size.width;
-        
-        CGRect rect = CGRectMake(x , self.indicatorView.frame.origin.y, self.indicatorView.bounds.size.width, self.indicatorHeight);
-        
-        [self.indicatorView setFrame:rect];
-    }];
+    float x = index * btn.bounds.size.width+btn.bounds.size.width/2;
+    float y = self.indicatorView.center.y;
+
+    POPBasicAnimation *anim = [POPBasicAnimation animationWithPropertyNamed:kPOPViewCenter];
+    
+    anim.toValue = [NSValue valueWithCGPoint:CGPointMake(x, y)];
+    anim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    anim.duration = 0.2;
+    
+    [self.indicatorView pop_addAnimation:anim forKey:@"centerAnimation"];
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(topTabbar:didSelectedItemAtIndex:)]) {
+        [self.delegate topTabbar:self didSelectedItemAtIndex:index];
+    }
 }
 
 #pragma mark - setter & getter
@@ -136,30 +152,51 @@
 
 - (UIScrollView *)indicatorView {
     if (_indicatorView == nil) {
-        float y = [self h] - self.indicatorHeight;
+        float y = [self h] - self.indicatorHeight/2;
         
-        CGRect rect = CGRectMake(0, y, [self w]/self.titles.count, self.indicatorHeight);
+        if (self.indicatorType == XFTopBarIndicatorTypeShortLine) {
+            y -= 8;
+        }
+
+        CGRect rect = CGRectMake(0, y,self.indicatorWidth, self.indicatorHeight);
         
-        _indicatorView = [[UIScrollView alloc] initWithFrame:rect];
+        _indicatorView = [[UIView alloc] initWithFrame:rect];
         
-        _indicatorView.contentSize = CGSizeMake([self w], self.indicatorHeight);
-        _indicatorView.showsVerticalScrollIndicator = NO;
-        _indicatorView.showsHorizontalScrollIndicator = NO;
+        _indicatorView.center = CGPointMake([self w]/self.titles.count/2, y);
+        
         _indicatorView.backgroundColor = self.indicatorColor;
-        
-        UIView *vColor = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [self w], self.indicatorHeight)];
-        
-        vColor.backgroundColor = self.indicatorColor;
-        [_indicatorView addSubview:vColor];
     }
     return _indicatorView;
 }
 
 - (float)indicatorHeight {
     if (_indicatorHeight == 0) {
-        _indicatorHeight = 0.5;
+        _indicatorHeight = 2;
     }
     return _indicatorHeight;
+}
+
+- (float)indicatorWidth {
+    if (_indicatorWidth == 0) {
+        switch (self.indicatorType) {
+            case XFTopBarIndicatorTypeDefault:
+                _indicatorWidth = [self w]/self.titles.count;
+                break;
+            case XFTopBarIndicatorTypeLongLine: {
+                _indicatorWidth = [self w]/self.titles.count;
+                break;
+            }
+            case XFTopBarIndicatorTypeShortLine: {
+                _indicatorWidth = 10;
+                break;
+            }
+            default:
+                _indicatorWidth = [self w]/self.titles.count;
+                break;
+        }
+    }
+    
+    return _indicatorWidth;
 }
 
 - (float)w {

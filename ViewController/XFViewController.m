@@ -197,6 +197,18 @@
     [hud hide:YES afterDelay:1.5];
 }
 
+- (void)onCustomBackItemClicked:(id)sender {
+    if (self.navigationController) {
+        if (self.navigationController.viewControllers.count == 1) {
+            [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+        } else {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    } else {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+}
+
 #pragma mark - request queue
 
 - (void)mainRequestStart {

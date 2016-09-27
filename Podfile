@@ -5,6 +5,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 inhibit_all_warnings!
 
 target 'XFFoundation' do
+   pod 'pop'
    pod 'YYKit'
    pod 'SVProgressHUD'
    pod 'AFNetworking'
