@@ -8,7 +8,7 @@
 
 #import "XFWeakScriptMessageDelegate.h"
 
-@interface XFWeakScriptMessageDelegate() 
+@interface XFWeakScriptMessageDelegate()
 
 @property (nonatomic, weak) id<WKScriptMessageHandler> scriptDelegate;
 

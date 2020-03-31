@@ -35,7 +35,6 @@
 		D47F290B2170739600424800 /* NSDictionary+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = D47F290A2170739600424800 /* NSDictionary+Log.m */; };
 		D4B047782315126600DFD1EC /* NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B047752315126600DFD1EC /* NJKWebViewProgress.m */; };
 		D4B047792315126600DFD1EC /* NJKWebViewProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B047772315126600DFD1EC /* NJKWebViewProgressView.m */; };
-		D4B0477C23151C6B00DFD1EC /* XFWeakScriptMessageDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B0477B23151C6B00DFD1EC /* XFWeakScriptMessageDelegate.m */; };
 		D4B047E1231D14B000DFD1EC /* BFKeyValueArrowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B047D5231D14AF00DFD1EC /* BFKeyValueArrowCell.m */; };
 		D4B047E2231D14B000DFD1EC /* BFKeyValueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B047D6231D14AF00DFD1EC /* BFKeyValueCell.m */; };
 		D4B047E3231D14B000DFD1EC /* BFInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B047D8231D14AF00DFD1EC /* BFInputCell.m */; };
@@ -69,6 +68,7 @@
 		EC6E42B01EDEF4F600A54C87 /* XALiveGiftLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6E42AF1EDEF4F600A54C87 /* XALiveGiftLayout.m */; };
 		EC724AC91E2C641700E36A01 /* XFCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = EC724AC81E2C641700E36A01 /* XFCollectionViewFlowLayout.m */; };
 		EC9C573C1E0B80C200F266C1 /* XFTopbarDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9C573B1E0B80C200F266C1 /* XFTopbarDemoViewController.m */; };
+		EC9EFFE824332B6C00F1919E /* XFWeakScriptMessageDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9EFFE724332B6C00F1919E /* XFWeakScriptMessageDelegate.m */; };
 		ECB850E21D9A0AE00006BE63 /* XFButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ECB850E11D9A0AE00006BE63 /* XFButton.m */; };
 		ECB9443C1D07BBBC00ED3229 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ECB9443B1D07BBBC00ED3229 /* main.m */; };
 		ECB9443F1D07BBBC00ED3229 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECB9443E1D07BBBC00ED3229 /* AppDelegate.m */; };
@@ -155,8 +155,6 @@
 		D4B047752315126600DFD1EC /* NJKWebViewProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgress.m; sourceTree = "<group>"; };
 		D4B047762315126600DFD1EC /* NJKWebViewProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgress.h; sourceTree = "<group>"; };
 		D4B047772315126600DFD1EC /* NJKWebViewProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgressView.m; sourceTree = "<group>"; };
-		D4B0477A23151C6B00DFD1EC /* XFWeakScriptMessageDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XFWeakScriptMessageDelegate.h; path = ../../../Tao/Tao/Vendor/XFFoundation/ViewController/WebVC/XFWeakScriptMessageDelegate.h; sourceTree = "<group>"; };
-		D4B0477B23151C6B00DFD1EC /* XFWeakScriptMessageDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XFWeakScriptMessageDelegate.m; path = ../../../Tao/Tao/Vendor/XFFoundation/ViewController/WebVC/XFWeakScriptMessageDelegate.m; sourceTree = "<group>"; };
 		D4B047D5231D14AF00DFD1EC /* BFKeyValueArrowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFKeyValueArrowCell.m; sourceTree = "<group>"; };
 		D4B047D6231D14AF00DFD1EC /* BFKeyValueCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFKeyValueCell.m; sourceTree = "<group>"; };
 		D4B047D7231D14AF00DFD1EC /* BFEmptyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFEmptyCell.h; sourceTree = "<group>"; };
@@ -222,6 +220,8 @@
 		EC724AC81E2C641700E36A01 /* XFCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		EC9C573A1E0B80C200F266C1 /* XFTopbarDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XFTopbarDemoViewController.h; path = ../XFTopbarDemoViewController.h; sourceTree = "<group>"; };
 		EC9C573B1E0B80C200F266C1 /* XFTopbarDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XFTopbarDemoViewController.m; path = ../XFTopbarDemoViewController.m; sourceTree = "<group>"; };
+		EC9EFFE624332B6C00F1919E /* XFWeakScriptMessageDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XFWeakScriptMessageDelegate.h; sourceTree = "<group>"; };
+		EC9EFFE724332B6C00F1919E /* XFWeakScriptMessageDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XFWeakScriptMessageDelegate.m; sourceTree = "<group>"; };
 		ECB850E01D9A0AE00006BE63 /* XFButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFButton.h; sourceTree = "<group>"; };
 		ECB850E11D9A0AE00006BE63 /* XFButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFButton.m; sourceTree = "<group>"; };
 		ECB944371D07BBBC00ED3229 /* XFFoundation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XFFoundation.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -311,8 +311,8 @@
 				D4B047732315126600DFD1EC /* NJKWebViewProgress */,
 				D47F28C8216EE9E800424800 /* XFWebViewController.h */,
 				D47F28C9216EE9E800424800 /* XFWebViewController.m */,
-				D4B0477A23151C6B00DFD1EC /* XFWeakScriptMessageDelegate.h */,
-				D4B0477B23151C6B00DFD1EC /* XFWeakScriptMessageDelegate.m */,
+				EC9EFFE624332B6C00F1919E /* XFWeakScriptMessageDelegate.h */,
+				EC9EFFE724332B6C00F1919E /* XFWeakScriptMessageDelegate.m */,
 			);
 			path = WebVC;
 			sourceTree = "<group>";
@@ -736,7 +736,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-XFFoundation/Pods-XFFoundation-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-XFFoundation/Pods-XFFoundation-resources.sh",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyBoardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 				"${PODS_ROOT}/SAMKeychain/Support/SAMKeychain.bundle",
@@ -751,7 +751,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XFFoundation/Pods-XFFoundation-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-XFFoundation/Pods-XFFoundation-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -772,6 +772,7 @@
 				ECB9445B1D07BC3F00ED3229 /* XFPlugin.m in Sources */,
 				EC2A6D1C1E7FC1E300F77095 /* AccountManager.m in Sources */,
 				D47F28CA216EE9E800424800 /* XFWebViewController.m in Sources */,
+				EC9EFFE824332B6C00F1919E /* XFWeakScriptMessageDelegate.m in Sources */,
 				ECC5BFE01D4CAFAB003D889F /* XFCardViewController.m in Sources */,
 				D4470F8622C0D8CE00D123EC /* UIButton+ImagePostion.m in Sources */,
 				ECE361BD1E2DF65B00548315 /* TestModelCollectionViewCell.m in Sources */,
@@ -814,7 +815,6 @@
 				ECB9443C1D07BBBC00ED3229 /* main.m in Sources */,
 				D4B047E3231D14B000DFD1EC /* BFInputCell.m in Sources */,
 				EC2FF98F1D33345D00C3F52F /* XFTopTabBar.m in Sources */,
-				D4B0477C23151C6B00DFD1EC /* XFWeakScriptMessageDelegate.m in Sources */,
 				D47F290B2170739600424800 /* NSDictionary+Log.m in Sources */,
 				ECF0ED4D1DAE1B400020D2EB /* XFNOTipView.m in Sources */,
 				D466DE9521FEB13D0071EB13 /* XFInputVC.m in Sources */,

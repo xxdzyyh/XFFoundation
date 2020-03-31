@@ -1,9 +1,9 @@
 //
 //  XFWeakScriptMessageDelegate.h
-//  Tao
+//  XFFoundation
 //
-//  Created by xiaoniu on 2019/8/9.
-//  Copyright © 2019 App4life Inc. All rights reserved.
+//  Created by wangxuefeng on 2020/3/31.
+//  Copyright © 2020 wangxuefeng. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

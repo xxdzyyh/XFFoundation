@@ -9,6 +9,7 @@
 #import "BFKeySegmentCell.h"
 #import "UIView+Utils.h"
 #import <Masonry/Masonry.h>
+#import "XFMarco.h"
 
 @implementation BFKeySegmentCell
 

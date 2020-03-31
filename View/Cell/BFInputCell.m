@@ -9,6 +9,8 @@
 #import "BFInputCell.h"
 #import "UIView+Utils.h"
 #import <Masonry/Masonry.h>
+#import <ReactiveObjC/ReactiveObjC.h>
+#import "XFMarco.h"
 
 @interface BFInputCell() <UITextFieldDelegate>
 
