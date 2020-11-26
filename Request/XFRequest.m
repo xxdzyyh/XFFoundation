@@ -197,9 +197,9 @@ static BOOL _staticUseJSONRequestSerializer = false;
     };
 
     if ([self.method isEqualToString:@"GET"]) {
-        [manager GET:url parameters:self.totalParameters progress:nil success:successBlock failure:failureBlock];
+        [manager GET:url parameters:self.totalParameters headers:nil progress:nil success:successBlock failure:failureBlock];
     } else {
-        [manager POST:url parameters:self.totalParameters progress:nil success:successBlock failure:failureBlock];
+        [manager POST:url parameters:self.totalParameters headers:nil progress:nil success:successBlock failure:failureBlock];
     }
 }
 

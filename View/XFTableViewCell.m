@@ -101,7 +101,7 @@
     hud.mode = MBProgressHUDModeText;
     hud.label.text = status;
     hud.margin = 10.f;
-    hud.yOffset = h/2 - 100;
+    hud.offset = (CGPoint){0, h/2 - 100};
     hud.removeFromSuperViewOnHide = YES;
     
     [hud hideAnimated:YES afterDelay:1.5];
